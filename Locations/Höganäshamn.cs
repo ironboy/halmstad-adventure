@@ -4,7 +4,7 @@
 class Höganäshamn : Location
 {
     private bool Trollmarks;
-    private bool WhentSouth;
+    private bool WentSouth;
 
     public override string Name => "Höganäshamn";
 
@@ -34,7 +34,7 @@ class Höganäshamn : Location
 
     public override void North()
     {
-        if(WhentSouth)
+        if(WentSouth)
             base.North();
         else
             Console.WriteLine(Trollmarks ? 
@@ -44,7 +44,7 @@ class Höganäshamn : Location
 
     public override void West()
     {
-        if(WhentSouth)
+        if(WentSouth)
             base.West();
         else
             Console.WriteLine(Trollmarks ? 
@@ -54,7 +54,7 @@ class Höganäshamn : Location
 
     public override void East()
     {
-        if(WhentSouth)
+        if(WentSouth)
             base.East();
         else
             Console.WriteLine(Trollmarks ? 
@@ -66,7 +66,7 @@ class Höganäshamn : Location
     {
         if(Trollmarks)
         {
-            WhentSouth = true;
+            WentSouth = true;
             base.South();
         }
         else 
