@@ -3,51 +3,23 @@
 
 class Höganäshamn : Location
 {
-    private readonly Guard _guard = new();
-    private bool _runesRead;
+    private readonly OmarSjöberg omarSjöberg = new();
 
     public override string Name => "Höganäshamn";
 
     public override string[] Description => [
-        "A cold stone room. Strange runes cover the far wall.",
-        _runesRead ? "You have already read the runes." : "The runes glow faintly.",
-        "A guard stands by the eastern door."
+        "Det är en hamn"
     ];
 
     public override string[] Actions => [
-        "Kolla omkring dig:KollaOmkringDig",
-        "Talk to the guard:TalkToGuard"
+        "Prata med Omar:Omar",
+        ":"
     ];
 
-    public void ReadRunes()
+    public void Omar()
     {
-        Console.WriteLine(_runesRead
-            ? "Nothing new. Still just runes."
-            : "\"THE COURTYARD HIDES A KEY\" – the glow fades.");
-        _runesRead = true;
+        Console.WriteLine("");
         Console.ReadLine();
     }
-
-    public void KollaOmkringDig()
-    {
-        Console.WriteLine("Norrut: Krapperups slott");
-    }
-
-    // An item that opens ANOTHER object's menu: just call its Run()
-    public void TalkToGuard() => _guard.Run();
-
-    // Prevent going east until the guard is bribed
-    public override void East()
-    {
-        if (!_guard.Bribed)
-        {
-            Console.WriteLine("The guard steps in front of you \"Not today\"");
-            Console.ReadLine();
-        }
-        else
-        {
-            // call the super class ("base") East method (in Location)
-            base.East();
-        }
-    }
+    
 }
