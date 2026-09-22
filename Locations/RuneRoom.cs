@@ -1,6 +1,6 @@
 // Example location: shows state that changes the description,
 // and how to hand over to an Npc's menu.
-
+/*
 class RuneRoom : Location
 {
     private readonly Guard _guard = new();
@@ -46,3 +46,4 @@ class RuneRoom : Location
         }
     }
 }
+*/

@@ -1,37 +1,32 @@
 class DIHarrietBlake : Npc
 {
-    public bool Bribed;
+    public bool Called;
 
-    public override string Name => "Guard";
+    public override string Name => "Detective";
 
     public override string[] Description => [
-        Bribed
-            ? "The guard pretends not to see you."
-            : "\"Halt! Nobody goes through the eastern door.\""
+        Called
+            ? "Du får reda på att liknande mord har skett i London"
+            : "Det står en telefon på skrivbordet."
     ];
 
-    public override string[] Actions => Bribed
-        ? ["Wink:Wink"]
-        : ["Ask about the door:AskAboutDoor",
-           "Offer a coin:Bribe"];
+    public override string[] Actions => Called
+        ? ["Ring DI Harriet Blake igen:CallAgain"]
+        : ["Ring DI Harriet Blake:Call"];
+           
 
-    public void AskAboutDoor()
-    {
-        Console.WriteLine("\"Locked. Has been for years. Move along.\"");
-        Console.ReadLine();
-    }
 
-    public void Bribe()
+    public void Call()
     {
-        Bribed = true;
-        Console.WriteLine("The coin vanishes into a pocket. \"Door? What door?\"");
+        Called = true;
+        Console.WriteLine("Du plockar upp telefonen och ringer rättsmedicin i London \"Detta är DI Harriet Blake\"");
         Console.ReadLine();
         Menu.Close();   // the conversation is over – back to the room
     }
 
-    public void Wink()
+    public void CallAgain()
     {
-        Console.WriteLine("The guard winks back.");
+        Console.WriteLine("Jag har inte tid med dig.");
         Console.ReadLine();
     }
 }
