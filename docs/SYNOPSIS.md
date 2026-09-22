@@ -74,11 +74,13 @@ Vi jobbar alla i **samma repo** – inga forkar. `main` är skyddad: ingen kan p
    feature-7-fyren-final
    ```
 
-   Hela gruppen jobbar på samma branch. Klona repot, sedan:
+   Hela gruppen jobbar på samma branch. Klona repot och byt till **er grupps** branch – antingen i terminalen:
 
    ```
-   git switch feature-2-molle
+   git switch feature-<ert nummer>-<ert kluster>
    ```
+
+   eller i VS Code: klicka på branch-namnet längst ner i vänstra hörnet (där det står `main`) och välj er branch i listan. Kontrollera att det står rätt branch där innan ni börjar skriva kod – och innan ni pushar.
 
 ## Så jobbar en grupp
 
