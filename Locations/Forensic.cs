@@ -1,5 +1,4 @@
-// Example location with a submenu (the "-" lines) and an item that disappears.
-// The key goes into Player.Inventory so other locations can check for it.
+// location: beskrivning av rummet och skrivbordslåda med obtuktionsrapporten i
 
 class Forensic : Location
 {
@@ -13,11 +12,11 @@ class Forensic : Location
     ];
 
     public override string[] Actions => _deskSearched
-        ? ["Look around:LookAround"]
-        : ["Look around:LookAround",
-           "Search the deskDrawer",
-           "-Reach in:TakeRapport",
-           "-Leave it:LeaveIt"];
+        ? ["Se dig omkring:LookAround"]
+        : ["Se dig omkring:LookAround",
+           "Titta på skrivbordet:",
+           "-Öppna lådan:TakeRapport",
+           "-Lämna lådan:LeaveIt"];
 
     public void LookAround()
     {

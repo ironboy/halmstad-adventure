@@ -1,3 +1,5 @@
+// description: telefonsamtal till London
+
 class DIHarrietBlake : Npc
 {
     public bool Called;
