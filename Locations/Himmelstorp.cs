@@ -18,7 +18,7 @@
 
     public override void East()
     {
-            Console.WriteLine("Vandrarna: Våran hund sprang iväg från oss när vi var vid Nimis o sprang mot Klippstranden han bettede sig lite undligt vill du hjälpa oss att hitta honom?");
+            Console.WriteLine("Vandrarna: Våran hund sprang iväg från oss, kan du hjälpa oss att hitta honom?");
             Console.ReadLine();
     }
 }
