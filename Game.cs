@@ -25,7 +25,7 @@ class Game : Interactive
             [new RuneRoom(), new Hallway()],
             [null,           new Courtyard()],
             [null,           new Gate()],
-        ], 0 /* row */, 0 /* col */); // 0,0 = RuneRoom
+        ], 0, 0); // 0,0 = RuneRoom row = 0, col = 0
 
         world.Play();
     }
