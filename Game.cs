@@ -1,6 +1,5 @@
 // The game itself: the main menu and the map.
 // Add new locations by creating a class in Locations/ and placing it in the map.
-// BLABLABLA
 
 class Game : Interactive
 {
