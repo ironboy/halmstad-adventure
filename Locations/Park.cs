@@ -1,6 +1,7 @@
 class Park : Location
 {
     private bool _talkedToGardener;
+    private readonly Gardener _gardener = new();
 
     public override string Name => "Park";
 
@@ -11,24 +12,20 @@ class Park : Location
     ];
 
     public override string[] Actions => _talkedToGardener
-        ? ["Look Around:LookAround"]
-        : ["Look Around: LookAround", "Prata med trädgårdsmästaren:TalkToGardener"];
+        ? ["Se dig omkring:LookAround"]
+        : ["Se dig omkring:LookAround", "Prata med trädgårdsmästaren:TalkToGardener"];
 
     public void LookAround()
     {
-        Console.WriteLine("Ogräs, jordhögar och trimmade träd");
+        Console.WriteLine("Ogräs, jordhögar och trimmade träd.");
         Console.ReadLine();
     }
 
     public void TalkToGardener()
     {
         _talkedToGardener = true;
-        Console.WriteLine("Trädgårsmästaren berättar om en kvinna som kom och smög in i slottet");
-        Console.ReadLine();   
-    }
-    public void Leave()
-    {
-        Console.WriteLine("Du lämnar trädgårsmästaren ifred");
-        Console.ReadLine();
+        var menu = Menu.Create([_gardener.Name, .. _gardener.Actions], _gardener);
+        menu.Run("Backa");
+        Menu.Close();
     }
 }

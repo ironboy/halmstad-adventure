@@ -7,14 +7,13 @@ class Gardener : Npc
     public override string[] Description => [
         disturbed
             ? "Trädgårdsmästaren blänger på dig."
-            : "\"Gå inte på gräset!.\""
+            : "\"Gå inte på gräset!\""
     ];
 
     public override string[] Actions => disturbed
         ? ["Backa:Backa"]
-        : ["Prata med trädgårdsmästaren",
-           "-Fråga om misstänkta:AskAboutVisitors",
-           "-Visa polisbricka:ShowBadge"];
+        : ["Fråga om misstänkta:AskAboutVisitors",
+           "Visa polisbricka:ShowBadge"];
 
     public void AskAboutVisitors()
     {
