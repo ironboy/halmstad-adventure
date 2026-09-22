@@ -10,7 +10,8 @@ class Josefinelust : Location
 
     public override string[] Description => [
         "Du står i klipplandskapet utanför grottan.",
-        "Du ser en rädd turist nära grottmynningen."
+        "Du ser en rädd turist nära grottmynningen.",
+        "Han har kissat på sig"
     ];
 
     public override string[] Actions => [
