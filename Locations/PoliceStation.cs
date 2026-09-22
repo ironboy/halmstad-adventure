@@ -10,8 +10,7 @@ class PoliceStation : Location
 
     public override string[] Description => [
         "Du kliver in på den lilla polisstationen.",
-        _talkedToOmar ? "Du har redan pratat med Omar" : "Kriminalinspektör Omar Sjöberg, hälsar dig välkommen med en nick.",
-        "'Jag förstår inte varför de skickat dig men jag antar att jag får hälsa dig välkommen.'"
+        _talkedToOmar ? "Du har redan pratat med Omar" : "Kriminalinspektör Omar Sjöberg, hälsar dig välkommen med en nick. \"Jag förstår inte varför de skickat dig men jag antar att jag får hälsa dig välkommen.\""
     ];
 
     public override string[] Actions => [
@@ -32,8 +31,10 @@ class PoliceStation : Location
     {
         Console.WriteLine("Du ser dig omkring och ser ett par små kontor. Till höger ligger ett litet personalrum där använda kaffekoppar hopar sig i diskhon.");
     }
+}
 
-    // An item that opens ANOTHER object's menu: just call its Run()
+/*
+  // An item that opens ANOTHER object's menu: just call its Run()
     public void TalkToGuard() => _guard.Run();
 
     // Prevent going east until the guard is bribed
@@ -50,4 +51,4 @@ class PoliceStation : Location
             base.East();
         }
     }
-}
+*/
