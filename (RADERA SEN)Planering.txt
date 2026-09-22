@@ -1,0 +1,31 @@
+Location 1: Utanför grottan 
+Personer: Scared tourist (Josefine Luststigen, utanför grottan)
+
+Meny val:
+Leave
+Talk to tourist
+Enter Cave
+__Leave
+__Interogate (Turisten svarar något)
+Tourist:
+Investigate bush (Finns bara om man pratat med turisten)
+__Pick up Pistol
+__Leave
+
+
+Location 2 Innanför grottan
+
+Meny val: 
+
+Search around
+__Meny val(efter search around)
+Leta bakom den stora stenen (här finns högtalaren)
+__Plocka upp högtalaren
+
+Gå till projektorn
+__Stäng av projektorn
+
+Leave
+
+
+
