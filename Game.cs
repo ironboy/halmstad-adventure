@@ -3,9 +3,9 @@
 
 class Game : Interactive
 {
-    public override string Name => "Helpers' Adventure";
+    public override string Name => "Jane the Ripper";
 
-    public override string[] Description => ["A tiny text adventure."];
+    public override string[] Description => ["Ett mord på Kullahalvön. Kullamannen? Eller något värre?"];
 
     public override string[] Actions => [
         "Start game:Start",
