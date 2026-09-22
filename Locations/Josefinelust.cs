@@ -3,6 +3,7 @@ class Josefinelust : Location
     
     private bool _hasInterrogatedTourist;
 
+
     private ScaredTourist _scaredTourist = new();
     
     public override string Name => "Utanför grottan";
@@ -13,7 +14,7 @@ class Josefinelust : Location
     ];
 
     public override string[] Actions => [
-       _hasInterrogatedTourist ? "Undersök busken:ExamineBush" : "Prata med turisten:TalkToTourist"
+       _hasInterrogatedTourist? "Undersök busken:ExamineBush" :  "Prata med turisten:TalkToTourist"
     ];
 
     public void TalkToTourist()
@@ -23,7 +24,17 @@ class Josefinelust : Location
 
     public void ExamineBush()
     {
-        Console.WriteLine("You examine the bush. It's big");
+        Console.WriteLine("You find a note, which has a pincode.");
         Console.ReadLine();
     }
+
+    public void TakeNote()
+    {
+        _hasInterrogatedTourist = true;
+        Player.Inventory.Add("Papper med pinkod");
+        Console.WriteLine("Du tar upp pappret");
+        Console.ReadLine();
+        Menu.Close();   // close the submenu – the Actions list has changed
+    }
+
 }
