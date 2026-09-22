@@ -19,19 +19,24 @@ class Game : Interactive
         // Everything is created fresh, so a new game starts from scratch:
         // new locations (their state is reset) and an empty inventory.
         Player.Inventory.Clear();
-
+            /*
         // Row 0 is north, column 0 is west. null = nothing there.
         World world = new([
             [new RuneRoom(), new Hallway()],
-            [null,           new Courtyard()],
+            [null,           new Courtyard()],                ////DEN GAMLA - ska tas bort, bara här för att jämföra
             [null,           new Gate()],
         ], 0, 0); // 0,0 = RuneRoom col = 0, row = 0 
-
-        /*
+            ////
+        
         World world = new([
-            [new Nimis(), new Himmelstorp()],
-            [new Klippstranden(), null],
-        ], 0, 0); */
+            [new Nimis(), new Himmelstorp()],           /////DEN VI SKA HA NÄR ALLT ÄR KLART
+            [null, new Klippstranden()],
+        ], 0, 0);
+        */
+        // Tillfällig testkarta med BARA din location:              ////LISETTES TEST, ändra till eget location för test av egen kod.
+        World world = new([
+        [ new Klippstranden() ]
+        ], 0, 0);
 
         world.Play();
     }
