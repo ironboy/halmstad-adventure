@@ -2,38 +2,43 @@
 
 class Coroner : Npc
 {
-    public bool Bribed;
+    public bool GetReport;
+
+    public bool CauseOfDeath;
 
     public override string Name => "Dr. Lindqvist";
 
     public override string[] Description => [
-        Bribed
+        GetReport
+        
             ? "The guard pretends not to see you."
-            : "\"Halt! Nobody goes through the eastern door.\""
+            : "Dr. Lindqvist är djupt koncentrerad när du kommer in."
     ];
 
-    public override string[] Actions => Bribed
+    public override string[] Actions => GetReport
         ? ["Wink:Wink"]
-        : ["Ask about the door:AskAboutDoor",
-           "Offer a coin:Bribe"];
+        : ["Fråga om dödsorsaken:AskAboutCoD",
+           "Fråga om obduktionsrapporten:AskForReport"];
 
-    public void AskAboutDoor()
+    public void AskAboutCoD()
     {
-        Console.WriteLine("\"Locked. Has been for years. Move along.\"");
+        CauseOfDeath = true;
+        Console.WriteLine("\"Skadorna är gjorda med en kirurgisk kniv, inte av några trollklor.\"");
         Console.ReadLine();
+        
     }
 
-    public void Bribe()
+    public void AskForReport()
     {
-        Bribed = true;
-        Console.WriteLine("The coin vanishes into a pocket. \"Door? What door?\"");
+        GetReport = true;
+        Console.WriteLine("\"Rapporten ligger i skrivbordslådan.\"");
         Console.ReadLine();
         Menu.Close();   // the conversation is over – back to the room
     }
 
     public void Wink()
     {
-        Console.WriteLine("The guard winks back.");
+        Console.WriteLine("Jag är upptagen.");
         Console.ReadLine();
     }
 }
