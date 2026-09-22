@@ -5,7 +5,7 @@ class PoliceStation : Location
 {
     private bool _fountainSearched;
 
-    public override string Name => "Courtyard";
+    public override string Name => "Polisstationen";
 
     public override string[] Description => [
         "An overgrown courtyard under a grey sky.",
