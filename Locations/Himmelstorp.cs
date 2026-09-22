@@ -1,45 +1,24 @@
-// class RuneRoom : Location
-// {
-//     private readonly Guard _guard = new();
-//     private bool _runesRead;
+ class Himmelstorp : Location
+ {
+     private readonly Hikers _hikers = new();
+    
 
-//     public override string Name => "Rune room";
+     public override string Name => "Himmelstorp";
 
-//     public override string[] Description => [
-//         "A cold stone room. Strange runes cover the far wall.",
-//         _runesRead ? "You have already read the runes." : "The runes glow faintly.",
-//         "A guard stands by the eastern door."
-//     ];
+     public override string[] Description => [
+         "En stor bokskog breder ut sig runt Eva.",
+         "Två vandrare står framför henne på stigen."
+     ];
 
-//     public override string[] Actions => [
-//         "Read the runes:ReadRunes",
-//         "Talk to the guard:TalkToGuard"
-//     ];
+     public override string[] Actions => [
+         "Prata med hikers:TalkToHikers"
+     ];
 
-//     public void ReadRunes()
-//     {
-//         Console.WriteLine(_runesRead
-//             ? "Nothing new. Still just runes."
-//             : "\"THE COURTYARD HIDES A KEY\" – the glow fades.");
-//         _runesRead = true;
-//         Console.ReadLine();
-//     }
+    public void TalkToHikers() => _hikers.Run();
 
-//     // An item that opens ANOTHER object's menu: just call its Run()
-//     public void TalkToGuard() => _guard.Run();
-
-//     // Prevent going east until the guard is bribed
-//     public override void East()
-//     {
-//         if (!_guard.Bribed)
-//         {
-//             Console.WriteLine("The guard steps in front of you \"Not today\"");
-//             Console.ReadLine();
-//         }
-//         else
-//         {
-//             // call the super class ("base") East method (in Location)
-//             base.East();
-//         }
-//     }
-//  }
+    public override void East()
+    {
+            Console.WriteLine("Vandrarna: Våran hund sprang iväg från oss när vi var vid Nimis o sprang mot Klippstranden han bettede sig lite undligt vill du hjälpa oss att hitta honom?");
+            Console.ReadLine();
+    }
+}
