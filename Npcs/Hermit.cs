@@ -5,7 +5,7 @@ class Hermit : Npc
     public override string Name => "Hermit";
 
     public override string[] Description => [
-        "En gammal man sitter vid en drivvedseld, med blicken fäst vid Nimis."
+        "En gammal man sitter vid en elden, med blicken fäst vid Nimis."
     ];
 
     public override string[] Actions => [
@@ -16,21 +16,21 @@ class Hermit : Npc
 
     public void AskAboutNimis()
     {
-       Console.WriteLine("\"\"");
+       Console.WriteLine("\"Nimis bara står,\" säger han\" Jag ser bara till att det förblir så\"");
        Console.ReadLine();
     }
 
     public void AskAboutLighthouse()
     {
         AskAboutLight = true;
-        Console.WriteLine("\"\"");
+        Console.WriteLine("\"Det har lyst i fyren på nätterna. Det borde inte göra det. Ingen bor där längre\"");
         Console.ReadLine();
           
     }
 
     public void Leave()
     {
-        Console.WriteLine("");
+        Console.WriteLine("Eremiten vänder sig tillbaka mot elden");
         Console.ReadLine();
         Menu.Close();
     }
