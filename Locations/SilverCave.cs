@@ -1,7 +1,7 @@
 // Example location: shows state that changes the description,
 // and how to hand over to an Npc's menu.
 
-class SilverCave : Location
+/*class SilverCave : Location
 {
     private readonly Guard _guard = new();
     private bool _runesRead;
@@ -46,3 +46,4 @@ class SilverCave : Location
         }
     }
 }
+*/
