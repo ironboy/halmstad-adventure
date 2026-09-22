@@ -1,19 +1,18 @@
-// Example Npc: has its own menu, remembers what you've said to it.
 
 class ScaredTourist : Npc
 {
-    public override string Name => "Rädd truist";
-
+    public override string Name => "Rädd turist";
     public override string[] Description =>[
         "Turisten har bermuda-skjorta och shorts",
         "och ser ut som en nybliven pensionär.",
         "Skräcken lyser i ögonen på honom som om han",
-        "nyss sett något oväntat och skrämmande."
+        "nyss sett något oväntat och skrämmande.",
+        "Han har kissat på sig"
     ];
 
     public override string[] Actions => [
         "Fråga om något ovanligt har hänt:TalkAboutUnusual",
-        "Prata om vädret:TalkAboutWeather"
+        "Visa att spöken var fake:ShowEvidence"     //Show evidence menu exists only if u have it.
     ];
 
     public void TalkAboutUnusual()
@@ -21,13 +20,14 @@ class ScaredTourist : Npc
         Console.WriteLine("\"Jag vågar inte prata om det jag sett\" säger turisten tårögd");
         Console.ReadLine();
     }
-
-     public void TalkAboutWeather()
+    public void ShowEvidence()
     {
-        Console.WriteLine("\"Vädret har varit fint hela dagen\" säger turisten och ser lite gladare ut.");
-        Console.ReadLine();
+        Console.WriteLine("Du visar bluffbevisen till turisten, han lugnar ner sig");
+        Player.Inventory.Remove("Bluffbevis");
+        Console.ReadKey();
     }
 
+    
 
     
 }

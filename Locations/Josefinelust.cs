@@ -1,8 +1,6 @@
 class Josefinelust : Location
 {
-    
-    private bool _hasInterrogatedTourist;
-
+    public bool TouristScared = true; //How to set to false through interaction with Tourist?
 
     private ScaredTourist _scaredTourist = new();
     
@@ -10,12 +8,12 @@ class Josefinelust : Location
 
     public override string[] Description => [
         "Du står i klipplandskapet utanför grottan.",
-        "Du ser en rädd turist nära grottmynningen.",
-        "Han har kissat på sig"
+        "Du ser en rädd turist nära grottmynningen."
+        
     ];
 
     public override string[] Actions => [
-       _hasInterrogatedTourist? "Undersök busken:ExamineBush" :  "Prata med turisten:TalkToTourist"
+      TouristScared ? "Prata med turisten:TalkToTourist" : "Kolla i busken" 
     ];
 
     public void TalkToTourist()
@@ -31,7 +29,6 @@ class Josefinelust : Location
 
     public void TakeNote()
     {
-        _hasInterrogatedTourist = true;
         Player.Inventory.Add("Papper med pinkod");
         Console.WriteLine("Du tar upp pappret");
         Console.ReadLine();
