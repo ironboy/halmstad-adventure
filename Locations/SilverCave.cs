@@ -10,12 +10,12 @@ class SilverCave : Location
     ];
 
     public override string[] Actions => [
-       "Gå till högtalaren",
+       "Gå mot ljudet:WhatDoISee",
+       "Kolla på högtalaren",
        "-Stäng av:TurnOffSpeaker",
        "-Headbanga:Headbang",
        "Gå till projektorn",
        "-Stäng av projektorn:TurnOffProjector",
-       "Gå tillbaka"
     ];
 
     public void Headbang()
@@ -42,6 +42,11 @@ class SilverCave : Location
     {
         Console.WriteLine("Du stänger av projektorn. Turisten kankse vågar prata med dig\nDu tar en bild så du kan bevisa att spöket var fake");
         Player.Inventory.Add("Bluffbevis");
+        Console.ReadKey();
+    }
+    public void WhatDoISee()
+    {
+        Console.WriteLine($"Du ser en högtalare bakom stenen");
         Console.ReadKey();
     }
 }

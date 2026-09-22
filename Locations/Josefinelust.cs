@@ -34,7 +34,7 @@ class Josefinelust : Location
         Player.Inventory.Add("Papper med pinkod");
         Console.WriteLine("Du tar upp pappret");
         Console.ReadLine();
-        Menu.Close();   // close the submenu – the Actions list has changed
+        Menu.Close();
     }
 
 }
