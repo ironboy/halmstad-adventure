@@ -2,7 +2,6 @@
 
 class OmarSjöberg : Npc
 {
-    
     public override string Name => "Omar Sjöberg";
 
     public override string[] Description => [

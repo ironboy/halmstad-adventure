@@ -1,6 +1,6 @@
 // Example Npc: has its own menu, remembers what you've said to it.
 
-class Guard : Npc
+class Coroner : Npc
 {
     public bool Bribed;
 
