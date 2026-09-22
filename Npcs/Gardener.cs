@@ -26,6 +26,8 @@ class Gardener : Npc
         disturbed = true;
         Console.WriteLine("Stressade ögon \"Vad vill du veta kommensarie?\"");
         Console.ReadLine();
+        Console.WriteLine("Trädgårdsmästaren berättar om en kvinna som kom och smög in i slottet.");
+        Console.ReadLine();
         Menu.Close();
     }
 
