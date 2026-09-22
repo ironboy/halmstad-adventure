@@ -25,7 +25,13 @@ class Game : Interactive
             [new RuneRoom(), new Hallway()],
             [null,           new Courtyard()],
             [null,           new Gate()],
-        ], 0, 0); // 0,0 = RuneRoom col = 0, row = 0
+        ], 0, 0); // 0,0 = RuneRoom col = 0, row = 0 
+
+        /*
+        World world = new([
+            [new Nimis(), new Himmelstorp()],
+            [new Klippstranden(), null],
+        ], 0, 0); */
 
         world.Play();
     }
