@@ -1,47 +1,42 @@
+// Example location with a submenu (the "-" lines) and an item that disappears.
+// The key goes into Player.Inventory so other locations can check for it.
+
 class Forensic : Location
 {
-    private readonly Guard _guard = new();
-    private bool _runesRead;
+    private bool _fountainSearched;
 
-    public override string Name => "Forensic";
+    public override string Name => "Polisstationen";
 
     public override string[] Description => [
-        ""
-        
-        "A cold stone room. Strange runes cover the far wall.",
-        _runesRead ? "You have already read the runes." : "The runes glow faintly.",
-        "A guard stands by the eastern door."
+        "An overgrown courtyard under a grey sky.",
+        _fountainSearched ? "The fountain is empty." : "Something glints in the fountain."
     ];
 
-    public override string[] Actions => [
-        "Read the runes:ReadRunes",
-        "Talk to the guard:TalkToGuard"
-    ];
+    public override string[] Actions => _fountainSearched
+        ? ["Look around:LookAround"]
+        : ["Look around:LookAround",
+           "Search the fountain",
+           "-Reach in:TakeKey",
+           "-Leave it:LeaveIt"];
 
-    public void ReadRunes()
+    public void LookAround()
     {
-        Console.WriteLine(_runesRead
-            ? "Nothing new. Still just runes."
-            : "\"THE COURTYARD HIDES A KEY\" – the glow fades.");
-        _runesRead = true;
+        Console.WriteLine("Weeds, a dry fountain, and a locked gate to the south.");
         Console.ReadLine();
     }
 
-    // An item that opens ANOTHER object's menu: just call its Run()
-    public void TalkToGuard() => _guard.Run();
-
-    // Prevent going east until the guard is bribed
-    public override void East()
+    public void TakeKey()
     {
-        if (!_guard.Bribed)
-        {
-            Console.WriteLine("The guard steps in front of you \"Not today\"");
-            Console.ReadLine();
-        }
-        else
-        {
-            // call the super class ("base") East method (in Location)
-            base.East();
-        }
+        _fountainSearched = true;
+        Player.Inventory.Add("rusty key");
+        Console.WriteLine("You pull out a rusty key!");
+        Console.ReadLine();
+        Menu.Close();   // close the submenu – the Actions list has changed
+    }
+
+    public void LeaveIt()
+    {
+        Console.WriteLine("You leave it. For now.");
+        Console.ReadLine();
     }
 }
