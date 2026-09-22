@@ -1,0 +1,4 @@
+class OutsideSilverCave : Location
+{
+    
+}
