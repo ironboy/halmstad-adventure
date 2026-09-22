@@ -22,14 +22,13 @@ Falsk hemsökelse är den röda tråden: överallt ser det ut som Kullamannen, m
 
 Rad 0 är norr, kolumn 0 är väster. Halvöns spets (fyren) pekar nordväst.
 
-```
-        0                1                2               3                 4
-rad 0   Kullens fyr      Silvergrottan    Nimis           Arilds hamn       Arilds kapell
-rad 1   Fyrvaktarbostad  Josefinelust     Himmelstorp     Rusthållargården  –
-rad 2   Ransvik          Mölle hamn       Grand Hôtel     Krapperups slott  Slottsbiblioteket
-rad 3   –                –                Nyhamnsläge     Höganäs hamn      Polisstationen (START)
-rad 4   –                –                –               Rättsmedicin      Evas bil (→ Helsingborg)
-```
+| | 0 | 1 | 2 | 3 | 4 |
+|---|---|---|---|---|---|
+| **rad 0** | Kullens fyr | Silvergrottan | Nimis | Arilds hamn | Arilds kapell |
+| **rad 1** | Fyrvaktarbostad | Josefinelust | Himmelstorp | Rusthållargården | – |
+| **rad 2** | Ransvik | Mölle hamn | Grand Hôtel | Krapperups slott | Slottsbiblioteket |
+| **rad 3** | – | – | Nyhamnsläge | Höganäs hamn | **Polisstationen (START)** |
+| **rad 4** | – | – | – | Rättsmedicin | Evas bil (→ Helsingborg) |
 
 Utgångar skapas automatiskt mellan grannceller, så **klustren måste vara sammanhängande block** och bara gränsa till varandra där det är rimligt att gå. Kartan ovan är ett utkast – flytta gärna, men behåll blocken hela.
 
