@@ -9,7 +9,7 @@ __Leave
 __Interogate (Turisten svarar något)
 Tourist:
 Investigate bush (Finns bara om man pratat med turisten)
-__Pick up Pistol
+__Pick up Note
 __Leave
 
 
