@@ -18,9 +18,6 @@ class ScaredTourist : Npc
             (Scared ? 
                 "Fråga om något ovanligt har hänt här:TalkAboutUnusual" :
                  "")
-        
-        
-        
     ];
 
     public void TalkAboutUnusual()
