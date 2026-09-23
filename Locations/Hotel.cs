@@ -1,14 +1,18 @@
 class  Hotel: Location
 {
  
-    public Receptionist _receptionist = new();
-     
-    private List<string> _ledgerEntries = [
+    public List<string> _ledgerEntries = [ // public so receptionist can get it
+        "På första sidan ser du hälsningmeddelanden vad föregående besökare lagt till i liggaren.",
         "Härligt att vara här igen. Erika & Erik",
-        "A nice place for a murder. Jane <3",
-        "The most wonderful place i've been too"
+        "A nice place to \"kill\" some time. / Jack <3 me",
+        "The most wonderful place i've been too! cheers \x1b[3mJessica\x1b[23m", // yeah that is one juicy code. So start italic and end italic. Also knowned as ANSI formating codes
     ];
  
+    public Receptionist _receptionist; // we are making the list accesible for the recptionist, so whe can use it in the class
+    public Hotel()
+    {
+        _receptionist = new Receptionist(_ledgerEntries); // 
+    }
      public override string Name => "Grand Hotell";
  
      public override string[] Description => [
@@ -37,7 +41,7 @@ class  Hotel: Location
         }
         else
         {
-            Console.WriteLine("Receptionisten Lisa hoppar fram och slår igen liggaren.");
+            Console.WriteLine("Receptionisten Louise hoppar fram och slår igen liggaren.");
         }
         Console.ReadLine();    
     }

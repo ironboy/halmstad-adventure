@@ -6,47 +6,61 @@ class Receptionist : Npc
 
 
     public List<string> Besökare = ["James Fawnhill","Thomas Andersson","Claus von Braum","Jenny Karlsson","Emelie J. Mongomery"];
+    
 
     public override string Name => "Receptionisten Louise";
 
     public override string[] Description => [
         "Du ser en människa bakom bordet och antar att detta är hotellpersonal",
         "Mörka ringar runt ögonen ger intrycket av att hon är utarbetad",
-        ""
     ];
 
     public override string [] Actions => [
          "Fråga Loiuse, \"Kan jag få kolla i liggaren?\":AskAboutLedger",
-         "Fråga Lisa, \"Vad kostar er dyraste svit?\":AskAboutSuite"
+         "Fråga Louise, \"Vad kostar er dyraste svit?\":AskAboutSuite"
     ];
 
+    public List<string> _ledgerEntries; // I mean i rather have this public yes, if u wanna use it from the receptionist? in a game setting i would presume thats a good idea,
+    // espically if we dont know the progressive plot atm.
+
+    public Receptionist(List<string> ledgerEntries)
+    {
+        _ledgerEntries = ledgerEntries;
+    }
     public void AskAboutSuite()
     {
         
          Console.WriteLine("\"Ja vad trevligt att du vill ha ett rum, de kostar 5000kr per natt\"");
          Console.WriteLine("Vill du skriva in dig i liggaren redan nu?");
          Console.WriteLine("Svara Ja/Nej");
+         
         
          AllowsLookInLedger = Console.ReadLine()!.Trim().Equals("Ja");
          
-         
-
-
-
         if (AllowsLookInLedger)
         {
+            Console.WriteLine("-Varsågod, här är liggaren, svarar Loiuse");
+            
             Console.Write("Skriv ditt namn: ");
             string namn = Console.ReadLine()!;
 
             Besökare.Add(namn);
-            Console.WriteLine("Varsågod, här är liggaren");
 
-            
+            foreach (string log in _ledgerEntries)
+            {
+                System.Console.WriteLine(log);
+            }           
 
             foreach (string besökare in Besökare)
             {
                 Console.WriteLine(besökare);
             }
+            {
+                System.Console.WriteLine("Vem är denna Emelie?");
+                System.Console.WriteLine("Alla andra namn är återkommande, hmm tänker Eva");
+            }
+
+            
         }
         else
         {
