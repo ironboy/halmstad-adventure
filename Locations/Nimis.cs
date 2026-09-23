@@ -2,26 +2,26 @@ class Nimis : Location
 {
     public override string Name => "Nimis";
 
+    private readonly Hermit _hermit = new();
+
 public override string[] Description => [
-    "-----------------------",
-    "Vid elden sitter en eremit."
+   "Trätorn reser sig längs klippkanten, byggda av drivved och gamla plankor.",
+    "En eremit sitter vid en liten eld nära Nimis fot, med blicken mot havet."
 ];
 
 public override string[] Actions => [
-    "Look around:LookAround",
-    "Talk to the hermit:TalkToHermit"
+    "Se dig omkring:LookAround",
+    "Prata med eremiten:TalkToHermit"
 ];
 
 public void LookAround()
 {
-    Console.WriteLine();
+    Console.WriteLine("Tornen knakar i vinden. Nedanför slår vågorna mot klipporna.");
     Console.ReadLine();
 }
 
-public void TalkToHermit()
-{
-   
-}
+public void TalkToHermit() => _hermit.Run();
+
 
 }
 
