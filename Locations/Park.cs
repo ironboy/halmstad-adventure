@@ -13,19 +13,17 @@ class Park : Location
 
     public override string[] Actions => _talkedToGardener
         ? ["Se dig omkring:LookAround"]
-        : ["Se dig omkring:LookAround", "Prata med trädgårdsmästaren:TalkToGardener"];
+        : ["Se dig omkring:LookAround", "Gå mot trädgårdsmästaren:TalkToGardener"];
 
     public void LookAround()
     {
-        Console.WriteLine("Ogräs, jordhögar och trimmade träd.");
+        Console.WriteLine("Du ser att trädgårdsmästaren gräver runt frenetiskt och där har lämnats jordhögar lite här och var.");
         Console.ReadLine();
     }
 
-    public void TalkToGardener()
-    {
-        _talkedToGardener = true;
-        var menu = Menu.Create([_gardener.Name, .. _gardener.Actions], _gardener);
-        menu.Run("Backa");
-        Menu.Close();
-    }
+  public void TalkToGardener()
+{
+    _talkedToGardener = true;
+    _gardener.Run();
+}
 }
