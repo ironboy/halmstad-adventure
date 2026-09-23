@@ -1,7 +1,6 @@
 class Josefinelust : Location
 {
-    public bool TouristScared = true; //How to set to false through interaction with Tourist?
-
+    
     private ScaredTourist _scaredTourist = new();
     
     public override string Name => "Utanför grottan";
@@ -13,7 +12,7 @@ class Josefinelust : Location
     ];
 
     public override string[] Actions => [
-      TouristScared ? "Prata med turisten:TalkToTourist" : "Kolla i busken" 
+      _scaredTourist.Scared ? "Prata med turisten:TalkToTourist" : "Kolla i busken:ExamineBush", 
     ];
 
     public void TalkToTourist()
