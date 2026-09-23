@@ -38,6 +38,10 @@ class Game : Interactive
         [ new Klippstranden() ]
         ], 0, 0);
 
+       /* World world = new([       ///Darias test
+        [ new Nimis() ]
+        ], 0, 0);*/
+
         world.Play();
     }
 

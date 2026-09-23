@@ -1,6 +1,3 @@
-//Klar
-
-
 class Dog : Npc
 {
     public bool Bribed;
@@ -10,11 +7,11 @@ class Dog : Npc
     public override string[] Description => [
         Bribed
             ? "Hunden ignorerar dig."
-            : "\"woff woff! hunden skäller mot dig.\""
+            : "\"woff woff! hunden skäller mot drivveden.\""
     ];
 
     public override string[] Actions => Bribed
-        ? [] // Inga val tillgängliga när hunden redan är mutat
+        ? [] 
         : [
             "Vissla på hunden:VisslaTillHunden",
             "Offer a coin:Bribe"
@@ -30,8 +27,5 @@ class Dog : Npc
     {
         Bribed = true;
         Console.WriteLine("Hunden visar intresse för pinnen du håller i och följer efter dig.");
-        Console.ReadLine();
-        Menu.Close(); // Stänger samtalet/menyn och går tillbaka till rummet
     }
 }
-
