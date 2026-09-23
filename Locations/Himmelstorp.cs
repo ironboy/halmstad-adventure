@@ -2,11 +2,8 @@
  {
      private  Hikers hikers = new Hikers();
 
-
      private bool _searchTheDog;
-     private bool _searchTheForest;
-    
-
+     
      public override string Name => "Himmelstorp";
 
      public override string[] Description => [
@@ -18,7 +15,7 @@
 
      public override string[] Actions => _searchTheDog 
      ? ["Talk to the hikers:TalkToHikers"]
-        : ["searchTheForest:SearchTheForest.",
+        : ["Search The Forest:SearchTheForest.",
             "Go deeper in to the Forest:GoDeeperInToTheForest"
 
         ]; 
@@ -26,7 +23,7 @@
 public void TalkToTheHikers()
     {
         Console.WriteLine("Eva: Hur ser hunden ut och vet vi vart den tog vägen?.");
-        Console.WriteLine("Vandrarna: Nej vi såg inte vart han tog vägen?");
+        Console.WriteLine("Vandrarna: Det är en liten brun och svart med stora uppstående öron. Nej vi såg inte vart han tog vägen?");
         Console.WriteLine("Eva: Okej, jag hjälper er att hitta honom.");
         Console.ReadLine();
     }
