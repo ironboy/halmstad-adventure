@@ -13,24 +13,26 @@ class ScaredTourist : Npc
     ];
 
     public override string[] Actions => [
-        Player.Has("Bluffbevis") ? 
-            "Visa att spöken var påhittad:ShowEvidence" :
-            (Scared ? 
-                "Fråga om något ovanligt har hänt här:TalkAboutUnusual" :
-                 "Fråga igen om turisten har sett något ovanligt:AskAgain")
+        !Scared
+            ? "Fråga igen om turisten har sett något ovanligt:AskAgain"
+            : (Player.Has("Bluffbevis")
+                ? "Visa att spöken var påhittad:ShowEvidence"
+                : "Fråga om något ovanligt har hänt här:TalkAboutUnusual")
     ];
 
     public void TalkAboutUnusual()
     {
         Console.WriteLine("\"Jag vågar inte prata om det jag sett\" säger turisten tårögd");
         Console.ReadLine();
+        Menu.Close();
     }
     public void ShowEvidence()
     {
         Console.WriteLine("Du visar bluffbevisen till turisten");
-        Console.WriteLine("Omg jag är så dum! Man är inte så klok när man är så gammal som mig \"Säger turisten\"");
+        Console.WriteLine("Omg jag är så dum! Man är inte så klok när man är så gammal som mig\nNu ska jag åka hem och tvätta byxorna... \"Säger han\"");
         Scared = false;
         Console.ReadKey();
+        Menu.Close();
     }
     public void AskAgain()
     {

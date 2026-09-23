@@ -12,7 +12,10 @@ class Josefinelust : Location
     ];
 
     public override string[] Actions => [
-      _scaredTourist.Scared ? "Prata med turisten:TalkToTourist" : "Kolla i busken:ExamineBush", 
+      "Prata med turisten:TalkToTourist",
+      _scaredTourist.Scared
+        ? "Titta runt:LookAround"
+        : "Kolla i busken:ExamineBush"
     ];
 
     public void TalkToTourist()
@@ -25,6 +28,11 @@ class Josefinelust : Location
         Console.WriteLine("Du hittar ett papper med en pinkod");
         Player.Inventory.Add("PINKOD");
         Console.ReadLine();
+    }
+    public void LookAround()
+    {
+        Console.WriteLine($"Du ser inget men turisten verkar veta något ");
+        Console.ReadKey();
     }
     
 }
