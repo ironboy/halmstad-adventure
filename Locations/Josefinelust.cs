@@ -22,16 +22,9 @@ class Josefinelust : Location
 
     public void ExamineBush()
     {
-        Console.WriteLine("You find a note, which has a pincode.");
+        Console.WriteLine("Du hittar ett papper med en pinkod");
+        Player.Inventory.Add("PINKOD");
         Console.ReadLine();
     }
-
-    public void TakeNote()
-    {
-        Player.Inventory.Add("Papper med pinkod");
-        Console.WriteLine("Du tar upp pappret");
-        Console.ReadLine();
-        Menu.Close();
-    }
-
+    
 }

@@ -1,16 +1,18 @@
 class SilverCave : Location
 {
     private bool _speakerIsOff;
+    private bool _knowOfSpeaker;
     
     public override string Name => "Inne i gråttan";
 
      public override string[] Description => [
         "Du står inne i gråttan och du ser projektorn som spelar upp ett spöke",
-        "Du ser även en ovanligt stort sten och hör ljud kommandes där ifrån"
+        "Du ser även en ovanligt stort sten och hör spök ljud kommandes där ifrån",
+        "Du antar att det är en högtalare och börjar tänka"
+        
     ];
 
     public override string[] Actions => [
-       "Gå mot ljudet:WhatDoISee",
        "Kolla på högtalaren",
        "-Stäng av:TurnOffSpeaker",
        "-Headbanga:Headbang",
@@ -27,9 +29,11 @@ class SilverCave : Location
     public void TurnOffSpeaker()
     {
         Console.WriteLine("Högtalaren frågor om en pinkod för att stänga av");
-        if(Player.Has("Papper med pinkod"))
+        if(Player.Has("PINKOD"))
         {
             Console.WriteLine("Du anger korrekt pin-kod och musiken tystnar");
+            Console.WriteLine("Du ser blodspår på högtalaren så du tar med den som bevis");
+            Player.Inventory.Add("Högtalare");
             _speakerIsOff = true;
         }
         else
@@ -44,9 +48,5 @@ class SilverCave : Location
         Player.Inventory.Add("Bluffbevis");
         Console.ReadKey();
     }
-    public void WhatDoISee()
-    {
-        Console.WriteLine($"Du ser en högtalare bakom stenen");
-        Console.ReadKey();
-    }
+
 }

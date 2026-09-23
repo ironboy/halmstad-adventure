@@ -17,7 +17,7 @@ class ScaredTourist : Npc
             "Visa att spöken var påhittad:ShowEvidence" :
             (Scared ? 
                 "Fråga om något ovanligt har hänt här:TalkAboutUnusual" :
-                 "")
+                 "Fråga igen om turisten har sett något ovanligt:AskAgain")
     ];
 
     public void TalkAboutUnusual()
@@ -27,9 +27,15 @@ class ScaredTourist : Npc
     }
     public void ShowEvidence()
     {
-        Console.WriteLine("Du visar bluffbevisen till turisten, han lugnar ner sig");
+        Console.WriteLine("Du visar bluffbevisen till turisten");
+        Console.WriteLine("Omg jag är så dum! Man är inte så klok när man är så gammal som mig \"Säger turisten\"");
         Scared = false;
-        Player.Inventory.Remove("Bluffbevis");
         Console.ReadKey();
-    }    
+    }
+    public void AskAgain()
+    {
+        Console.WriteLine("\"Jag såg något konstigt i busken men jag var så rädd så jag våga inte kolla\" säger turisten");
+        Console.ReadKey();
+
+    }
 }
