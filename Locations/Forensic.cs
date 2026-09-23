@@ -3,6 +3,9 @@
 class Forensic : Location
 {
     private bool _deskSearched;
+    private bool _calledHarriet;
+
+    private Coroner _coroner = new();
 
     public override string Name => "Rättsmedicin";
 
@@ -11,20 +14,31 @@ class Forensic : Location
         _deskSearched ? "Byrålådan är tom." : "I byrålådan hittar du en obduktionsrapport."
     ];
 
-    public override string[] Actions => _deskSearched
-        ? ["Se dig omkring:LookAround"]
-        : ["Se dig omkring:LookAround",
-           "Titta på skrivbordet:",
+/*public override string[] Actions => !_deskSearched
+        ? ["Se dig omkring:LookAround",
+         "Titta på skrivbordet:",
            "-Öppna lådan:TakeRapport",
-           "-Lämna lådan:LeaveIt"];
+           "-Lämna lådan:LeaveIt"]
+        :
 
-    public void LookAround()
-    {
-        Console.WriteLine("Det finns lådor under skrivbordet och en skrivbordstol med en kavaj hängd över.");
-        Console.ReadLine();
-    }
+        ? ["Se dig omkring:LookAround",
+        "Ring Harriet Blake:CallHarriet"
+        ]
+        :["Prata med Dr.Lindkvist:TalkToCoroner"
+        ];*/
 
-    public void GetAuthopsyRapport()
+public override string[] Actions => !_coroner.GetReport ? [
+        "Se dig omkring:LookAround",
+        "Prata med Dr.Lindkvist:TalkToCoroner"
+  ] : !_deskSearched ? [
+      "Titta på skrivbordet",
+      "-Öppna lådan:TakeReport",
+      "-Lämna lådan:LeaveIt"
+  ] : [
+     "Ring Harriet Blake:CallHarriet"
+  ];
+
+    public void TakeReport()
     {
         _deskSearched = true;
         Player.Inventory.Add("obduktionsrapport");
@@ -38,4 +52,16 @@ class Forensic : Location
         Console.WriteLine("Du undersöker inte skrivbordslådan... än.");
         Console.ReadLine();
     }
+
+    public void TalkToCoroner()
+    {
+        _coroner.Run();
+    }
+
+    public void LookAround()
+    {
+        Console.WriteLine("Litta döingar...");
+        Console.ReadLine();
+    }
+
 }
