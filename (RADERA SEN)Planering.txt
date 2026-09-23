@@ -31,4 +31,5 @@ Leave
 PROBLEMS:
 After turning the projector off you should not be able to see the option "Gå till projekton" anymore OR it should write "Inget att se"
 After finding the note to turn off the speaker it still sais that you try your favorite code? mabye the item is not added to the inventory?
+When talking to the tourist you have to press "stop talking" two times. (minimal error might not need fixing, but quality of life)
 
