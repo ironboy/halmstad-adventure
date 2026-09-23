@@ -1,6 +1,6 @@
 # Komposition, arv och ansvar i Jane the Ripper
 
-Ni har byggt i tre dagar. Nu är det dags att titta på *hur* koden hänger ihop – inte för att ändra den, utan för att kunna förklara den. Det är det inlämningsuppgiften och projektet kommer att kräva: "motivera dina designval". Klassdiagrammet över hela motorn finns på bloggen (uppdaterat med torsdagens tillägg; det ligger också som `docs/uml.html` i repot – ladda ner och öppna i webbläsaren).
+Ni har byggt i tre dagar. Nu är det dags att titta på *hur* koden hänger ihop – inte för att ändra den, utan för att kunna förklara den. Det är det inlämningsuppgiften och projektet kommer att kräva: "motivera dina designval". Ha klassdiagrammet över hela motorn bredvid er när ni läser – det är uppdaterat med torsdagens tillägg.
 
 ## 1. Två sätt att återanvända: arv och komposition
 

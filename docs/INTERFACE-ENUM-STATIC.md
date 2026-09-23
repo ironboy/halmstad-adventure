@@ -140,4 +140,4 @@ I `Game.Start()` står nu `world.DevMode = true;`. Så länge den är `true` har
 
 ## 7. Kolon i menytexter – nu inbyggt
 
-Ändringen som föreslogs i syntaxartikeln på bloggen (avsnittet om kolon i menytexter) är nu gjord i motorn: menyn delar vid **sista** kolonet. `"Fråga: vem är du?:AskWho"` fungerar, och `"INSTÄLLNINGAR:"` blir en undermeny som visas med kolon. Det var faktiskt DEV-menyraden `"DEV: Teleport:DevTeleport"` som tvingade fram det.
+Ändringen som föreslogs i artikeln *Syntax i koden som kan se ny ut* (avsnittet om kolon i menytexter) är nu gjord i motorn: menyn delar vid **sista** kolonet. `"Fråga: vem är du?:AskWho"` fungerar, och `"INSTÄLLNINGAR:"` blir en undermeny som visas med kolon. Det var faktiskt DEV-menyraden `"DEV: Teleport:DevTeleport"` som tvingade fram det.
