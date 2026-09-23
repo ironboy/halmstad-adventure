@@ -23,9 +23,9 @@ class Game : Interactive
         // Row 0 is north, column 0 is west. null = nothing there.
         World world = new([
             [new RuneRoom(), new Hallway()],
-            [null,           new Courtyard()],
+            [new ArildChapel(), new Courtyard()],
             [null,           new Gate()],
-        ], 0, 0); // 0,0 = RuneRoom col = 0, row = 0
+        ], 0, 1); // 0,0 = RuneRoom col = 0, row = 0
 
         world.Play();
     }
