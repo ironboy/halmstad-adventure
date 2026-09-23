@@ -17,6 +17,7 @@ public override string[] Actions => [
 public void LookAround()
 {
     Console.WriteLine("Tornen knakar i vinden. Nedanför slår vågorna mot klipporna.");
+    Console.WriteLine("Långt österut skymtar Kullens fyr genom disen.");
     Console.ReadLine();
 }
 
