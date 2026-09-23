@@ -34,4 +34,5 @@ After turning the projector off you should not be able to see the option "Gå ti
 After showing "Bluffbevis" to the tourist there is an empty option. It should show something like "Fråga igen om touristen har sett något ovanligt".
 After searching the bush you find a note, the option to look in the bush again should eather removed or say "Inget att se"
 After finding the note to turn off the speaker it still sais that you try your favorite code? mabye the item is not added to the inventory?
+When talking to the tourist you have to press "stop talking" two times. (minimal error might not need fixing, but quality of life)
 
