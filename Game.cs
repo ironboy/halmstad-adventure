@@ -27,6 +27,7 @@ class Game : Interactive
             [null,           new Gate()],
         ], 0, 0); // 0,0 = RuneRoom col = 0, row = 0
 
+        world.DevMode = true;   // "DEV: Teleport" in every menu - set to false for the real game
         world.Play();
     }
 
