@@ -57,7 +57,7 @@ class Klippstranden : Location
 
         while (inDogMenu && !dog.Bribed)
         {
-            Console.Clear(); // Rensar skärmen så gamla menyer försvinner
+            Console.Clear(); 
             Console.WriteLine("Du går fram till hunden.");
             Console.WriteLine(dog.Description[0]);
             
@@ -76,13 +76,13 @@ class Klippstranden : Location
             else if (input == "2")
             {
                 Console.Clear();
-                dog.Bribe(); // Sätter Bribed = true
+                dog.Bribe(); 
 
                 Console.WriteLine("\nVägen till drivvedstornet är nu fri!");
                 Console.WriteLine("Tryck Enter för att återvända till menyn...");
                 Console.ReadLine();
 
-                inDogMenu = false; // Går tillbaka till platsens huvudmeny
+                inDogMenu = false; 
             }
             else if (input == "0")
             {
