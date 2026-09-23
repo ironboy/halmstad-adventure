@@ -7,13 +7,13 @@ class Hikers : Npc
    ];
 public override string[] Actions => [
         "Ask what happened:AskWhatHappend",
-        "Ask about the lighthouse:AskAboutLighthouse",
         "Leave:Leave"
     ];
     
      public void AskWhatHappend()
     {
-       Console.WriteLine("Eva: Vad har hänt?\n Vandrarna: när vi var vid Nimis o så sprang vår hund iväg han bettede sig lite undligt vill du hjälpa oss att hitta honom?");
+       Console.WriteLine("Eva: Vad har hänt?");
+       Console.WriteLine("Vandrarna: När vi var vid Nimis o så sprang vår hund iväg. Han bettede sig lite undligt vill du hjälpa oss att hitta honom?");
        Console.ReadLine();
     }
         

@@ -1,6 +1,7 @@
  class Himmelstorp : Location
  {
-     private readonly Hikers _hikers = new();
+     private  Hikers hikers = new Hikers();
+
 
      private bool _searchTheDog;
      private bool _searchTheForest;
@@ -18,13 +19,15 @@
      public override string[] Actions => _searchTheDog 
      ? ["Talk to the hikers:TalkToHikers"]
         : ["searchTheForest:SearchTheForest.",
-            "Follow the dog:FollowTheDog"
+            "Go deeper in to the Forest:GoDeeperInToTheForest"
 
         ]; 
                                                            
 public void TalkToTheHikers()
     {
-        Console.WriteLine("Våran hund sprang iväg från oss, kan du hjälpa oss att hitta honom?.");
+        Console.WriteLine("Eva: Hur ser hunden ut och vet vi vart den tog vägen?.");
+        Console.WriteLine("Vandrarna: Nej vi såg inte vart han tog vägen?");
+        Console.WriteLine("Eva: Okej, jag hjälper er att hitta honom.");
         Console.ReadLine();
     }
 
@@ -33,10 +36,10 @@ public void TalkToTheHikers()
         Console.WriteLine("Eva går in i skogen och hittar inget förutom mer skog och olika djurspår");
         Console.ReadLine();
     }
-    public void FollowTheDog()
+    public void GoDeeperInToTheForest()
     {
         _searchTheDog = true;
-        Console.WriteLine("Eva hittar hundspår o följer dom mot Klippstranden.");
+        Console.WriteLine("Eva går djupare in i skogen och hittar hundspår.");
         Console.ReadLine();
         
     }
