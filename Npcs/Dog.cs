@@ -7,7 +7,7 @@ class Dog : Npc
     public override string[] Description => [
         Bribed
             ? "Hunden ignorerar dig."
-            : "\"woff woff! hunden skäller mot dig.\""
+            : "\"woff woff! hunden skäller mot drivveden.\""
     ];
 
     public override string[] Actions => Bribed

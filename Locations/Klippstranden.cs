@@ -1,4 +1,3 @@
-//KLAR
 class Klippstranden : Location
 {
     private bool _beachSearched;
@@ -19,19 +18,19 @@ class Klippstranden : Location
     {
         if (_beachSearched)
         {
-            return ["Look around:LookAround"];
+            return ["Titta dig omkring:LookAround"];
         }
 
         if (dog.Bribed)
         {
             return [
-                "Look around:LookAround",
+                "Titta dig omkring:LookAround",
                 "Sök igenom drivveden:SearchBeach"
             ];
         }
 
         return [
-            "Look around:LookAround",
+            "Titta dig omkring:LookAround",
             "Prata med hunden:TalkToDog"
         ];
     }
@@ -57,7 +56,7 @@ class Klippstranden : Location
 
         while (inDogMenu && !dog.Bribed)
         {
-            Console.Clear(); 
+            Console.Clear();
             Console.WriteLine("Du går fram till hunden.");
             Console.WriteLine(dog.Description[0]);
             
@@ -76,13 +75,13 @@ class Klippstranden : Location
             else if (input == "2")
             {
                 Console.Clear();
-                dog.Bribe(); 
+                dog.Bribe();
 
                 Console.WriteLine("\nVägen till drivvedstornet är nu fri!");
                 Console.WriteLine("Tryck Enter för att återvända till menyn...");
                 Console.ReadLine();
 
-                inDogMenu = false; 
+                inDogMenu = false;
             }
             else if (input == "0")
             {
