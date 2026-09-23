@@ -1,18 +1,17 @@
-using System.Formats.Asn1;
 
 class Receptionist : Npc
 {
+
+
+
     public bool AllowsLookInLedger;
 
-
-    public List<string> Besökare = ["James Fawnhill","Thomas Andersson","Claus von Braum","Jenny Karlsson","Emelie J. Mongomery"];
-    
-
+    public List<string> Besökare = ["James Fawnhill","Thomas Andersson","Claus von Braum","Jenny Karlsson","Emelie J. Montgomery"];
     public override string Name => "Receptionisten Louise";
 
     public override string[] Description => [
         "Du ser en människa bakom bordet och antar att detta är hotellpersonal",
-        "Mörka ringar runt ögonen ger intrycket av att hon är utarbetad",
+        "Mörka ringar runt ögonen ger intrycket av att hon är överarbetad",
     ];
 
     public override string [] Actions => [
@@ -20,7 +19,7 @@ class Receptionist : Npc
          "Fråga Louise, \"Vad kostar er dyraste svit?\":AskAboutSuite"
     ];
 
-    public List<string> _ledgerEntries; // I mean i rather have this public yes, if u wanna use it from the receptionist? in a game setting i would presume thats a good idea,
+    public List<string> _ledgerEntries; // I mean i rather have this public yes, if u wanna use it from the receptionist? in a game setting i would pressume thats a good idea,
     // espically if we dont know the progressive plot atm.
 
     public Receptionist(List<string> ledgerEntries)
@@ -59,12 +58,14 @@ class Receptionist : Npc
                 System.Console.WriteLine("Vem är denna Emelie?");
                 System.Console.WriteLine("Alla andra namn är återkommande, hmm tänker Eva");
             }
+             //player.Inventory.Add("Ledtråd: Emelie"); some add , but thats not my objective with the exercise
 
-            
+             
+
         }
         else
         {
-            Console.WriteLine("Jasså, äru snål eller?");
+            Console.WriteLine("Jasså, äru SJUKE I HUVE ELLER eller?");
         }
 
         Console.ReadLine();
@@ -83,6 +84,8 @@ class Receptionist : Npc
 
         Console.ReadLine();
     }
+  
+
 }
 
 
