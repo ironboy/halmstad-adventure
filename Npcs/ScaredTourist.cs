@@ -19,7 +19,7 @@ class ScaredTourist : Npc
                 ? "Visa att spöken var påhittad:ShowEvidence"
                 : "Fråga om något ovanligt har hänt här:TalkAboutUnusual")
     ];
-
+    
     public void TalkAboutUnusual()
     {
         Console.WriteLine("\"Jag vågar inte prata om det jag sett\" säger turisten tårögd");
