@@ -10,7 +10,7 @@ class Receptionist : Npc
     public override string Name => "Receptionisten Louise";
 
     public override string[] Description => [
-        "Du ser en människa bakom bordet och antar att detta är hotellpersonal",
+        "Du ser en människa bakom bordet, antar att detta är hotellpersonal",
         "Mörka ringar runt ögonen ger intrycket av att hon är överarbetad",
     ];
 
@@ -58,14 +58,14 @@ class Receptionist : Npc
                 System.Console.WriteLine("Vem är denna Emelie?");
                 System.Console.WriteLine("Alla andra namn är återkommande, hmm tänker Eva");
             }
-             //player.Inventory.Add("Ledtråd: Emelie"); some add , but thats not my objective with the exercise
+             //player.Inventory.Add("Ledtråd: Emelie"); some add , but thats not my objective with the exercise atm
 
              
 
         }
         else
         {
-            Console.WriteLine("Jasså, äru SJUKE I HUVE ELLER eller?");
+            Console.WriteLine("Jasså, är det för dyrt för en Malmö bo eller?");
         }
 
         Console.ReadLine();

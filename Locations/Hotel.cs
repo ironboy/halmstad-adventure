@@ -1,4 +1,4 @@
-class  Hotel: Location
+class  GrandHotel: Location
 {
 
 
@@ -10,7 +10,7 @@ class  Hotel: Location
     ];
  
     public Receptionist _receptionist; // we are making the list accesible for the recptionist, so whe can use it in the class
-    public Hotel()
+    public GrandHotel()
     {
         _receptionist = new Receptionist(_ledgerEntries); // 
     }

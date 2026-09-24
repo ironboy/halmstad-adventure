@@ -14,7 +14,7 @@ class Game : Interactive
 
     protected override string ExitLabel => "Quit";
 
-    public void Start()
+    public void Start() // wasnt static or altleast the current code wouldnt let me use static
     {
         // Everything is created fresh, so a new game starts from scratch:
         // new locations (their state is reset) and an empty inventory.
@@ -22,10 +22,10 @@ class Game : Interactive
 
         // Row 0 is north, column 0 is west. null = nothing there.
         World world = new([
-            [new Hotel(),    new Hallway()],
-            [null,           new Courtyard()],
-            [null,           new Gate()],
-        ], 0, 0); // 0,0 = RuneRoom col = 0, row = 0
+        [new MölleHamn(), new GrandHotel()],
+        [new Ransvik(), null],
+        ], 0, 0);
+                        // 0,0 = RuneRoom col = 0, row = 0
 
         world.Play();
     }
