@@ -6,8 +6,8 @@ class Park : Location
     public override string Name => "Park";
 
     public override string[] Description => [
-        "En finklippt gräsmatta fylld med blomster, trimmade träd och i fjärran ett slott." +
-        "Mitt i blomstern sitter det en trädgårdsmästare och påtar i rabatten",
+        "En finklippt gräsmatta fylld med blomster, trimmade träd och mot öster ett slott." +
+        " Mitt i blomstern sitter det en trädgårdsmästare och påtar i rabatten",
         _talkedToGardener ? "Trädgårdsmästaren har återgått till sitt arbete." : ""
     ];
 

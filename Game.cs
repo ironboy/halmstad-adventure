@@ -21,11 +21,13 @@ class Game : Interactive
         Player.Inventory.Clear();
 
         // Row 0 is north, column 0 is west. null = nothing there.
-         World world = new([
-            [new Park(), new Castle(),    new CastleLibrary(), ],
-            [null,       null,            null,                ],
-            [null,       null,            null,                ],
-        ], 0, 0); // start: col 0, row 0 = Park
+        World world = new([
+            [new Park(), new Castle()],
+            [null,           null],
+        
+        ], 0, 0); // 0,0 = RuneRoom col = 0, row = 0
+
+        world.Play();
     }
 
     public void Help()
