@@ -22,8 +22,8 @@ class Game : Interactive
 
         // Row 0 is north, column 0 is west. null = nothing there.
         World world = new([
-            [new Park(), new Castle()],
-            [null,           null],
+            [new Park(), new Castle(), new CastleLibrary()],
+            [null,       null,         null,              ],
         
         ], 0, 0); // 0,0 = RuneRoom col = 0, row = 0
 
