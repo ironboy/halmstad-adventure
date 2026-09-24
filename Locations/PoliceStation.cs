@@ -21,11 +21,7 @@ class PoliceStation : Location
 
     public void TalkToOmarSjöberg()
     {
-        Console.WriteLine(_talkedToOmar
-            ? "Ska vi åka då?"
-            : "Kroppen hittades i Höganäs hamn, vi kör på en gång.");
-        _talkedToOmar = true;
-        Console.ReadLine();
+        _omarSjoberg.Run();
     }
 
     public void LookAround()

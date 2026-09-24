@@ -11,7 +11,7 @@ class Coroner : Npc
     ];
 
     public override string[] Actions => GetReport
-        ? ["Prata med Dr Lindqvist:Wink"]
+        ? ["Prata med Dr Lindqvist:TalktToCoroner"]
         : ["Fråga om obduktionsrapporten:AskForReport"];
 
     public void AskForReport()
@@ -22,7 +22,7 @@ class Coroner : Npc
         Menu.Close();   // the conversation is over – back to the room
     }
 
-    public void Wink()
+    public void TalkToCoroner()
     {
         Console.WriteLine("Jag är upptagen.");
         Console.ReadLine();
