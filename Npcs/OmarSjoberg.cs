@@ -15,13 +15,18 @@ class OmarSjoberg : Npc
     ];
 
     public override string[] Actions => !introduction ? [
-        "Presentera dig för Omar:IntroduceYourself"
-    ] :
-        !askedAboutCase ? [
+        "Presentera dig för Omar:IntroduceYourself",
         "Be om updatering i fallet:AskAboutCase"
-    ] :
-    [
+    ] 
+    : introduction && !askedAboutCase ? [
+        "Be om updatering i fallet:AskAboutCase"
+    ]
+    : !introduction && askedAboutCase ? [
+        "Presentera dig för Omar:IntroduceYourself",
         "Prata med Omar:TalkToOmar"
+    ]
+    :
+    [   "Prata med Omar:TalkToOmar"
     ];
       
     public void IntroduceYourself()

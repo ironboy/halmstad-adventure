@@ -1,6 +1,8 @@
 // Example location with a submenu (the "-" lines) and an item that disappears.
 // The key goes into Player.Inventory so other locations can check for it.
 
+using System.Collections.Concurrent;
+
 class PoliceStation : Location
 {   
     private OmarSjoberg _omarSjoberg = new();
@@ -29,6 +31,21 @@ class PoliceStation : Location
     {
         Console.WriteLine("Du ser dig omkring och ser ett par små kontor. Till höger ligger ett litet personalrum där använda kaffekoppar hopar sig i diskhon.");
         Console.ReadLine();
+    }
+
+    public override void West()
+    {
+        if(_talkedToOmar)
+        {
+            base.West();
+        }
+        else
+        {
+            Console.WriteLine("Jag behöver lite mer information.");
+            Console.ReadLine();   
+        }
+            
+        
     }
 }
 

@@ -10,7 +10,7 @@ class Hoganashamn : Location
 
     public override string[] Description => [
         !Trollmarks
-        ? "Hamnen är full av båtar och turister som samlats runt ett avspärrat område." :
+        ? "Hamnen är full av båtar. Några turister har samlats runt ett avspärrat område." :
           "Kroppen förs vidare till rättsmedicin."
     ];
 
@@ -54,20 +54,6 @@ class Hoganashamn : Location
     {
         if(WentSouth)
             base.West();
-        else
-        {
-            Console.WriteLine(Trollmarks ? 
-            "Omar Sjöberg: \"Vi borde gå syd till Rättsmedicin och få info om den döda kroppen.\"" 
-            : "Omar Sjöberg: \"Vi borde kolla omkring hamnen lite mer.\"");
-            Console.ReadLine();
-        }
-            
-    }
-
-    public override void East()
-    {
-        if(WentSouth)
-            base.East();
         else
         {
             Console.WriteLine(Trollmarks ? 
