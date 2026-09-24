@@ -26,4 +26,17 @@ class Park : Location
     _talkedToGardener = true;
     _gardener.Run();
 }
+ public override void East()
+    {
+        if (!_gardener.GlassesFound)
+        {
+            Console.WriteLine("Du bör nog prata klart med trädgårdsmästaren innan du går vidare.");
+            Console.ReadLine();
+        }
+        else
+        {
+            // call the super class ("base") East method (in Location)
+            base.East();
+        }
+    }
 }
