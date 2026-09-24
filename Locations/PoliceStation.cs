@@ -3,14 +3,15 @@
 
 class PoliceStation : Location
 {   
-    private readonly OmarSjöberg _omarSjöberg = new();
+    private readonly OmarSjoberg _omarSjoberg = new();
      private bool _talkedToOmar;
 
     public override string Name => "Polisstationen i Höganäs";
 
     public override string[] Description => [
-        "Du kliver in på den lilla polisstationen.",
-        _talkedToOmar ? "Du har redan pratat med Omar" : "Kriminalinspektör Omar Sjöberg, hälsar dig välkommen med en nick. \"Jag förstår inte varför de skickat dig men jag antar att jag får hälsa dig välkommen.\""
+        _talkedToOmar 
+        ? "Du kliver in på den lilla polisstationen." :
+        "Kriminalinspektör Omar Sjöberg, hälsar dig välkommen med en nick. \"Jag förstår inte varför de skickat dig men jag antar att jag får hälsa dig välkommen.\""
     ];
 
     public override string[] Actions => [
@@ -30,25 +31,7 @@ class PoliceStation : Location
     public void LookAround()
     {
         Console.WriteLine("Du ser dig omkring och ser ett par små kontor. Till höger ligger ett litet personalrum där använda kaffekoppar hopar sig i diskhon.");
+        Console.ReadLine();
     }
 }
 
-/*
-  // An item that opens ANOTHER object's menu: just call its Run()
-    public void TalkToGuard() => _guard.Run();
-
-    // Prevent going east until the guard is bribed
-    public override void East()
-    {
-        if (!_guard.Bribed)
-        {
-            Console.WriteLine("The guard steps in front of you \"Not today\"");
-            Console.ReadLine();
-        }
-        else
-        {
-            // call the super class ("base") East method (in Location)
-            base.East();
-        }
-    }
-*/

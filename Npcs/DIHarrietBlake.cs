@@ -8,7 +8,7 @@ class DIHarrietBlake : Npc
 
     public override string[] Description => [
         Called
-            ? "Du får reda på att liknande mord har skett i London"
+            ? "Du får bekräftat att liknande mord har skett i London"
             : "Det står en telefon på skrivbordet."
     ];
 
@@ -23,12 +23,12 @@ class DIHarrietBlake : Npc
         Called = true;
         Console.WriteLine("Du plockar upp telefonen och ringer rättsmedicin i London \"Detta är DI Harriet Blake\"");
         Console.ReadLine();
-        Menu.Close();   // the conversation is over – back to the room
     }
 
     public void CallAgain()
     {
         Console.WriteLine("Jag har inte tid med dig.");
         Console.ReadLine();
+        Menu.Close();   // the conversation is over – back to the room
     }
 }

@@ -1,6 +1,6 @@
 // Example Npc: has its own menu, remembers what you've said to it.
 
-class OmarSjöberg : Npc
+class OmarSjoberg : Npc
 {
     public override string Name => "Omar Sjöberg";
 

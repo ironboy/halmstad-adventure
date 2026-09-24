@@ -4,29 +4,15 @@ class Coroner : Npc
 {
     public bool GetReport;
 
-    public bool CauseOfDeath;
-
     public override string Name => "Dr. Lindqvist";
 
     public override string[] Description => [
-        GetReport
-        
-            ? "The guard pretends not to see you."
-            : "Dr. Lindqvist är djupt koncentrerad när du kommer in."
+          "Dr. Lindqvist är djupt koncentrerad när du kommer in."
     ];
 
     public override string[] Actions => GetReport
-        ? ["Wink:Wink"]
-        : ["Fråga om dödsorsaken:AskAboutCoD",
-           "Fråga om obduktionsrapporten:AskForReport"];
-
-    public void AskAboutCoD()
-    {
-        CauseOfDeath = true;
-        Console.WriteLine("\"Skadorna är gjorda med en kirurgisk kniv, inte av några trollklor.\"");
-        Console.ReadLine();
-        
-    }
+        ? ["Prata med Dr Lindqvist:Wink"]
+        : ["Fråga om obduktionsrapporten:AskForReport"];
 
     public void AskForReport()
     {

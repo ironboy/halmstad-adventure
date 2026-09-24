@@ -3,46 +3,39 @@
 class Forensic : Location
 {
     private bool _deskSearched;
-    private bool _calledHarriet;
 
     private Coroner _coroner = new();
+
+    private DIHarrietBlake _harriet = new();
 
     public override string Name => "Rättsmedicin";
 
     public override string[] Description => [
-        "Ett kalt rum med kaklade väggar och inbyggda likkylar. Intill en annan vägg står ett skrivbord med en svag lampa som lyser.",
-        _deskSearched ? "Byrålådan är tom." : "I byrålådan hittar du en obduktionsrapport."
+        !_deskSearched
+        ? "Ett kalt rum med kaklade väggar och inbyggda likkylar. Intill en annan vägg står ett skrivbord med en svag lampa som lyser.":
+        "Det påminner dig om några mord som skett i London, du bestämmer dig för att ringa DI Harriet Blake"
     ];
-
-/*public override string[] Actions => !_deskSearched
-        ? ["Se dig omkring:LookAround",
-         "Titta på skrivbordet:",
-           "-Öppna lådan:TakeRapport",
-           "-Lämna lådan:LeaveIt"]
-        :
-
-        ? ["Se dig omkring:LookAround",
-        "Ring Harriet Blake:CallHarriet"
-        ]
-        :["Prata med Dr.Lindkvist:TalkToCoroner"
-        ];*/
 
 public override string[] Actions => !_coroner.GetReport ? [
         "Se dig omkring:LookAround",
         "Prata med Dr.Lindkvist:TalkToCoroner"
   ] : !_deskSearched ? [
-      "Titta på skrivbordet",
-      "-Öppna lådan:TakeReport",
-      "-Lämna lådan:LeaveIt"
+        "Se dig omkring:LookAround",
+        "Prata med Dr.Lindkvist:TalkToCoroner",
+        "Titta på skrivbordet",
+        "-Öppna lådan:TakeReport",
+        "-Lämna lådan:LeaveIt"
   ] : [
-     "Ring Harriet Blake:CallHarriet"
+        "Se dig omkring:LookAround",
+        "Prata med Dr.Lindkvist:TalkToCoroner",
+        "Ring Harriet Blake:CallHarriet"
   ];
 
     public void TakeReport()
     {
         _deskSearched = true;
         Player.Inventory.Add("obduktionsrapport");
-        Console.WriteLine("Obduktionsrapporten pekar på att 'rivmärkena' är gjorda med en kirurgkniv.");
+        Console.WriteLine("Det står att skärsåren är gjorda av kirurgiska knivar. Du tar med dig obduktionsrapporten.");
         Console.ReadLine();
         Menu.Close();   // close the submenu – the Actions list has changed
     }
@@ -62,6 +55,11 @@ public override string[] Actions => !_coroner.GetReport ? [
     {
         Console.WriteLine("Litta döingar...");
         Console.ReadLine();
+    }
+
+    public void CallHarriet()
+    {
+        _harriet.Run();
     }
 
 }

@@ -1,35 +1,39 @@
 // Example location: shows state that changes the description,
 // and how to hand over to an Npc's menu.
 
-class Höganäshamn : Location
+class Hoganashamn : Location
 {
     private bool Trollmarks;
     private bool WentSouth;
 
-    public override string Name => "Höganäshamn";
+    public override string Name => "Höganäs hamn";
 
     public override string[] Description => [
-        "Det är en hamn"
+        !Trollmarks
+        ? "Hamnen är full av båtar och turister som samlats runt ett avspärrat område." :
+          "Kroppen förs vidare till rättsmedicin."
     ];
 
     public override string[] Actions => [
         "Prata med Omar:Omar",
-        "Kolla om kring:Kolla"
+        "Se dig omkring:Kolla"
     ];
 
     public void Omar()
     {
         if(!Trollmarks)
-            Console.WriteLine("Vi borde kolla omkring efter ledtrådar om de personerna som har försvunnit");
+            Console.WriteLine("Vi borde se oss omkring efter ledtrådar.");
         else
-            Console.WriteLine("Folket pratar om att det är \"Kullamannen\" som ligger bakom de försvunna personerna.");
+            Console.WriteLine("Folket pratar om att det är \"Kullamannen\" som ligger bakom de försvunna personerna pga.rivsåren.");
         Console.ReadLine();
     }
 
     public void Kolla()
     {
-        Console.WriteLine("Efter du har kollat omkring hamnen en stund hittar du en död person.");
         Trollmarks = true;
+        Console.WriteLine("Ni ser den döda kroppen med sår som ser ut som stora rivsår.");
+        Console.ReadLine();
+        
     }
 
     public override void North()
