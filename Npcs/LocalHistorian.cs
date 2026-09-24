@@ -1,128 +1,121 @@
-// HEMBYGDSFORSKAREN – NPC i källaren.
+// LOCAL HISTORIAN (Hembygdsforskaren) – NPC at the reception in CastleLibrary.
+// A weird man in a pointed hat who distrusts the police.
 //
-// Samma idé som bibliotekarien: bool-fält låser upp dialogen steg för steg.
-//   _knowsWish  → han har avslöjat vad han drömmer om: slottets innersta rum
-//   Bribed      → kommissarien har lovat honom tillträde (public – Kallare läser det)
-//   _gaveTip    → han har berättat var boken står i Gång 5
+// To win him over the commissioner must promise TWO things:
+//   1. access to the castle's inner chambers
+//   2. that the surveillance cameras are off while he is there
+//      (the cameras the player found in the Castle)
 //
-// Mutan är INTE pengar – det är kommissariens makt att öppna slottets stängda rum.
-// Pengar är en fälla: han blir förolämpad, men avslöjar samtidigt vad han egentligen vill ha.
+// Flat menu, no submenus. Actions is re-read every time the menu is drawn,
+// so new choices appear by themselves as the bool fields change.
+//
+// The public fields are read by CastleLibrary – same idea as Castle reading
+// _castlemanager.Threatened.
 
 class LocalHistorian : Npc
 {
-    public bool Bribed;
-    private bool _knowsWish;
-    private bool _gaveTip;
+    
+    private const string Borrower = "[Gry Nicholsson]";
+
+    private bool _knowsWish;           // he has told you what he wants
+    private bool _promisedAccess;      // promise 1: the inner chambers
+    private bool _promisedCamerasOff;  // promise 2: cameras off
+    private bool _knowsBorrower;
+
+    public bool KnowsAboutAisle5;      // read by CastleLibrary to unlock "Leta i Gång 5"
+
+    // Both promises made = he is on your side
+    public bool Persuaded => _promisedAccess && _promisedCamerasOff;
 
     public override string Name => "Hembygdsforskaren";
 
     public override string[] Description => [
-        Bribed
-            ? "Hembygdsforskaren lutar sig fram med glittrande ögon. \"Vad vill kommissarien veta?\""
-            : "En skum man med spetsig hatt blänger upp från en hög gulnade papper. \"Vad gör en polis här nere?\""
+        Persuaded
+            ? "Hembygdsforskaren lutar sig fram över disken. \"Vad vill kommissarien veta?\""
+            : "Mannen med den spetsiga hatten blänger på dig. \"Vad gör en polis här?\""
     ];
 
     public override string[] Actions
     {
         get
         {
-            // ----- Efter mutan: samarbetsvillig -----
-            if (Bribed)
-            {
-                List<string> helpful = ["Fråga om Kullamannen:AskAboutLegend",
-                                        "Fråga om kvinnan som lånade boken:AskAboutWoman"];
-                helpful.Add(_gaveTip
-                    ? "Fråga om det sista kapitlet:AskAboutChapter"
-                    : "Fråga var det andra exemplaret finns:AskWhereBook");
-                return helpful.ToArray();
-            }
+            List<string> actions = [];
 
-            // ----- Före mutan: ovillig -----
-            List<string> actions = ["Fråga om boken om Kullamannen:AskAboutBookRefused",
-                                    "Fråga om sägnerna:AskAboutLegendsRefused"];
+            // Before he is persuaded
+            if (!_knowsWish)
+                actions.Add("Fråga om boken om Kullamannen:AskAboutBook");
 
-            actions.Add("Gör honom ett erbjudande");            // rubrik för undermenyn
-            actions.Add("-Erbjud pengar:OfferMoney");
-            if (_knowsWish)                                       // dyker upp först när du vet vad han vill ha
-                actions.Add("-Lova tillträde till slottets innersta rum:OfferSanctum");
-            actions.Add("-Ångra dig:Hesitate");
+            if (_knowsWish && !_promisedAccess)
+                actions.Add("Lova honom tillträde till slottets innersta rum:PromiseAccess");
+
+            if (_promisedAccess && !_promisedCamerasOff)
+                actions.Add("Lova att kamerorna är avstängda när han är där:PromiseCamerasOff");
+
+            // After he is persuaded
+            if (Persuaded && !_knowsBorrower)
+                actions.Add("Fråga vem som lånade boken:AskWhoBorrowed");
+
+            if (Persuaded && !KnowsAboutAisle5)
+                actions.Add("Fråga om det finns fler exemplar:AskAboutCopies");
+
+            if (Persuaded && _knowsBorrower && KnowsAboutAisle5)
+                actions.Add("Fråga om Kullamannen:AskAboutLegend");
 
             return actions.ToArray();
         }
     }
 
-    // ---------- Före mutan ----------
+    // ---------- Swaying him ----------
 
-    public void AskAboutBookRefused()
-    {
-        Console.WriteLine("\"Böcker, böcker. Ni poliser läser bara protokoll.\"");
-        Console.WriteLine("Han vänder demonstrativt blad i sina papper.");
-        Console.ReadLine();
-    }
-
-    public void AskAboutLegendsRefused()
+    public void AskAboutBook()
     {
         _knowsWish = true;
-        Console.WriteLine("Han kan inte hålla sig. \"Sägnerna? Kullamannen är ingen saga!");
-        Console.WriteLine("Svaren finns i slottets innersta rum – de gamla kamrarna. Trettio år har jag");
-        Console.WriteLine("bett förvaltaren att få komma in. Trettio år av nej.\"");
+        Console.WriteLine("\"Böcker ger jag inte ut till poliser.\" Han muttrar vidare för sig själv:");
+        Console.WriteLine("\"Trettio år har jag bett att få se slottets innersta rum. Trettio år av nej.");
+        Console.WriteLine("Och förvaltaren med sina kameror... han ser allt.\"");
         Console.ReadLine();
     }
 
-    public void OfferMoney()
+    public void PromiseAccess()
     {
-        _knowsWish = true;
-        Console.WriteLine("Han fnyser. \"Tror kommissarien att jag kan köpas med mynt?");
-        Console.WriteLine("Det enda jag vill ha är att få se slottets innersta rum. Men det kan ju ingen ordna.\"");
+        _promisedAccess = true;
+        Console.WriteLine("\"Förvaltaren gör som polisen säger. Ett ord från mig, så öppnas kamrarna.\"");
+        Console.WriteLine("Han tittar upp. \"Och kamerorna? Jag vill inte att någon ser mig där inne.\"");
         Console.ReadLine();
-        Menu.Close();   // nytt val i undermenyn – rita om den
     }
 
-    public void OfferSanctum()
+    public void PromiseCamerasOff()
     {
-        Bribed = true;
-        Console.WriteLine("\"Förvaltaren gör som polisen säger,\" säger du. \"Ett ord från mig, så öppnas kamrarna.\"");
-        Console.WriteLine("Hembygdsforskaren tar av sig hatten. Händerna darrar.");
-        Console.WriteLine("\"Då... då har vi en överenskommelse, kommissarien.\"");
+        _promisedCamerasOff = true;
+        Console.WriteLine("\"Kamerorna står stilla när du är där. Det ordnar jag.\"");
+        Console.WriteLine("Han tar av sig hatten. Händerna darrar. \"Då har vi en överenskommelse, kommissarien.\"");
         Console.ReadLine();
-        Menu.Close();   // stänger undermenyn – nu visas de samarbetsvilliga frågorna
     }
 
-    public void Hesitate()
+    // ---------- Once persuaded ----------
+
+    public void AskWhoBorrowed()
     {
-        Console.WriteLine("Du låter bli. Han har redan återgått till sina papper.");
+        _knowsBorrower = true;
+        Player.Inventory.Add("lånekortets namn");
+        Console.WriteLine("Han vänder på lånekortet i liggaren.");
+        Console.WriteLine($"\"{Borrower}. En kvinna med jackan knäppt ända upp.");
+        Console.WriteLine("Hon trodde inte på sägnen. Hon använde den. Och hon gömde boken under jackan.\"");
         Console.ReadLine();
     }
 
-    // ---------- Efter mutan ----------
+    public void AskAboutCopies()
+    {
+        KnowsAboutAisle5 = true;
+        Console.WriteLine("\"Det finns ett gammalt exemplar till. Gång 5, översta hyllan, längst in.");
+        Console.WriteLine("Läs det sista kapitlet – det är där hon hittade vägen.\"");
+        Console.ReadLine();
+    }
 
     public void AskAboutLegend()
     {
         Console.WriteLine("\"Kullamannen vaktar berget och havet. Den som förstår hans gåtor");
         Console.WriteLine("hittar vägen. Den som inte förstår... ja.\"");
-        Console.ReadLine();
-    }
-
-    public void AskAboutWoman()
-    {
-        Console.WriteLine("\"Hon var här nere i förra veckan. Frågade om det sista kapitlet – bara det.");
-        Console.WriteLine("Hon verkade inte tro på sägnen. Hon verkade använda den.\"");
-        Console.ReadLine();
-    }
-
-    public void AskWhereBook()
-    {
-        _gaveTip = true;
-        Player.Inventory.Add("tips om gång 5");   // låser upp repet i Slottsbiblioteket
-        Console.WriteLine("\"Gång 5, översta hyllan, längst in. Repet? Säg att jag skickade er.");
-        Console.WriteLine("Och läs det sista kapitlet – det är där hon hittade vägen.\"");
-        Console.ReadLine();
-        Menu.Close();
-    }
-
-    public void AskAboutChapter()
-    {
-        Console.WriteLine("\"Det är en gåta. Jag har aldrig löst den. Kanske gör ni det.\"");
         Console.ReadLine();
     }
 }

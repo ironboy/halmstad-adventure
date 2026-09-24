@@ -1,29 +1,40 @@
 // CASTLE LIBRARY (Slottsbiblioteket) – the whole library in one location.
 // The Reception and Aisle 5 are parts of this room, not separate locations.
-// The player meets the librarian directly: she is part of the description,
-// and the conversation is plain actions in the room's own menu (no NPC, no submenus).
+// The player meets the local historian (hembygdsforskaren) directly: he is part of
+// the description, and the conversation is plain actions in the room's menu
+// (no NPC class, no submenus).
 //
-// Progress is kept in bool fields. Actions is re-read every time the menu is drawn,
-// so new choices appear by themselves as the fields change.
+// To win him over the commissioner must promise TWO things:
+//   1. access to the castle's inner chambers
+//   2. that the surveillance cameras are off while he is there
+// (the cameras the player found in the Castle).
+//
+// Actions is re-read every time the menu is drawn, so new choices
+// appear by themselves as the bool fields change.
 
 class CastleLibrary : Location
 {
     // REPLACE with the name your group decided the murderer borrowed the book under.
-    private const string Borrower = "[Gry Nikolai]";
+    private const string Borrower = "[Gry Nicholsson]";
 
-    private bool _askedAboutBook;
+    private bool _knowsWish;           // he has told you what he wants
+    private bool _promisedAccess;      // promise 1: the inner chambers
+    private bool _promisedCamerasOff;  // promise 2: cameras off → he cooperates
     private bool _knowsBorrower;
     private bool _knowsAboutAisle5;
     private bool _bookFound;
     private bool _riddleRead;
 
+    // Both promises made = he is on your side
+    private bool Persuaded => _promisedAccess && _promisedCamerasOff;
+
     public override string Name => "Slottsbiblioteket";
 
     public override string[] Description => [
         "Höga valv, dammig luft och hyllor så långt ögat når.",
-        _askedAboutBook
-            ? "Bibliotekarien står kvar vid receptionsdisken och väntar på dina frågor."
-            : "Vid receptionsdisken tittar bibliotekarien upp över glasögonen. \"Kan jag hjälpa kommissarien?\"",
+        Persuaded
+            ? "Hembygdsforskaren lutar sig fram över receptionsdisken. \"Vad vill kommissarien veta?\""
+            : "Bakom receptionsdisken sitter en skum man med spetsig hatt. \"Vad gör en polis här?\"",
         _bookFound
             ? "Boken om Kullamannen ligger uppslagen framför dig."
             : "Längst in skymtar Gång 5, där de äldsta böckerna står."
@@ -35,13 +46,21 @@ class CastleLibrary : Location
         {
             List<string> actions = [];
 
-            if (!_askedAboutBook)
+            // Before he is persuaded
+            if (!_knowsWish)
                 actions.Add("Fråga om boken om Kullamannen:AskAboutBook");
 
-            if (_askedAboutBook && !_knowsBorrower)
-                actions.Add("Visa polisbrickan och fråga vem som lånade boken:ShowBadge");
+            if (_knowsWish && !_promisedAccess)
+                actions.Add("Lova honom tillträde till slottets innersta rum:PromiseAccess");
 
-            if (_askedAboutBook && !_knowsAboutAisle5)
+            if (_promisedAccess && !_promisedCamerasOff)
+                actions.Add("Lova att kamerorna är avstängda när han är där:PromiseCamerasOff");
+
+            // After he is persuaded
+            if (Persuaded && !_knowsBorrower)
+                actions.Add("Fråga vem som lånade boken:AskWhoBorrowed");
+
+            if (Persuaded && !_knowsAboutAisle5)
                 actions.Add("Fråga om det finns fler exemplar:AskAboutCopies");
 
             if (_knowsAboutAisle5 && !_bookFound)
@@ -54,28 +73,50 @@ class CastleLibrary : Location
         }
     }
 
+    // ---------- Swaying the historian ----------
+
     public void AskAboutBook()
     {
-        _askedAboutBook = true;
-        Console.WriteLine("Hon bläddrar i utlåningsliggaren och stannar upp.");
-        Console.WriteLine("\"Boken om Kullamannen lånades ut i morse. Ingen har rört den på flera år.\"");
+        _knowsWish = true;
+        Console.WriteLine("\"Böcker ger jag inte ut till poliser.\" Han muttrar vidare för sig själv:");
+        Console.WriteLine("\"Trettio år har jag bett att få se slottets innersta rum. Trettio år av nej.");
+        Console.WriteLine("Och förvaltaren med sina kameror... han ser allt.\"");
         Console.ReadLine();
     }
 
-    public void ShowBadge()
+    public void PromiseAccess()
+    {
+        _promisedAccess = true;
+        Console.WriteLine("\"Förvaltaren gör som polisen säger. Ett ord från mig, så öppnas kamrarna.\"");
+        Console.WriteLine("Han tittar upp. \"Och kamerorna? Jag vill inte att någon ser mig där inne.\"");
+        Console.ReadLine();
+    }
+
+    public void PromiseCamerasOff()
+    {
+        _promisedCamerasOff = true;
+        Console.WriteLine("\"Kamerorna står stilla när du är där. Det ordnar jag.\"");
+        Console.WriteLine("Han tar av sig hatten. Händerna darrar. \"Då har vi en överenskommelse, kommissarien.\"");
+        Console.ReadLine();
+    }
+
+    // ---------- Once persuaded ----------
+
+    public void AskWhoBorrowed()
     {
         _knowsBorrower = true;
         Player.Inventory.Add("lånekortets namn");
-        Console.WriteLine("Du lägger polisbrickan på disken. Hon tvekar, sedan vänder hon på lånekortet.");
+        Console.WriteLine("Han vänder på lånekortet i liggaren.");
         Console.WriteLine($"\"{Borrower}. En kvinna med jackan knäppt ända upp.");
-        Console.WriteLine("Hon gömde boken under jackan när hon gick.\"");
+        Console.WriteLine("Hon trodde inte på sägnen. Hon använde den. Och hon gömde boken under jackan.\"");
         Console.ReadLine();
     }
 
     public void AskAboutCopies()
     {
         _knowsAboutAisle5 = true;
-        Console.WriteLine("\"Det finns ett gammalt exemplar till. Gång 5, översta hyllan, längst in.\"");
+        Console.WriteLine("\"Det finns ett gammalt exemplar till. Gång 5, översta hyllan, längst in.");
+        Console.WriteLine("Läs det sista kapitlet – det är där hon hittade vägen.\"");
         Console.ReadLine();
     }
 
