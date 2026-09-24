@@ -13,12 +13,12 @@
          _searchTheDog ? "Vandrarna såg inte åt vilket håll hunden gick." : "Eva hittar hundspår."
      ];
 
-     public override string[] Actions => _searchTheDog 
+   public override string[] Actions => _searchTheDog 
      ? ["Talk to the hikers:TalkToHikers"]
         : ["Search The Forest:SearchTheForest.",
-            "Go deeper in to the Forest:GoDeeperInToTheForest"
+           "Go deeper in to the Forest:GoDeeperInToTheForest"
 
-        ]; 
+         ]; 
                                                            
 public void TalkToTheHikers()
     {
@@ -40,8 +40,6 @@ public void TalkToTheHikers()
         Console.ReadLine();
         
     }
-
-
 
 
  }

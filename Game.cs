@@ -35,7 +35,7 @@ class Game : Interactive
         */
         // Tillfällig testkarta med BARA din location:              ////LISETTES TEST, ändra till eget location för test av egen kod.
         World world = new([
-        [ new Klippstranden() ]
+        [ new Himmelstorp() ]
         ], 0, 0);
 
        /* World world = new([       ///Darias test
