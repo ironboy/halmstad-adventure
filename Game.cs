@@ -24,7 +24,7 @@ class Game : Interactive
         World world = new([
             [new Park(), new Castle()],
             [null,           new Courtyard()],
-            [null,           new Gate()],
+        
         ], 0, 0); // 0,0 = RuneRoom col = 0, row = 0
 
         world.Play();
