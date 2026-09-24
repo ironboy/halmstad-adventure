@@ -13,3 +13,18 @@
 /Users/juliaborowska/Desktop/IBUZOR/halmstad-adventure/obj/Debug/net10.0/adventure.pdb
 /Users/juliaborowska/Desktop/IBUZOR/halmstad-adventure/obj/Debug/net10.0/adventure.genruntimeconfig.cache
 /Users/juliaborowska/Desktop/IBUZOR/halmstad-adventure/obj/Debug/net10.0/ref/adventure.dll
+C:\Users\gryho\OneDrive\Desktop\Skola\Kurs 2\Uppgifter\F5 Krapperup\halmstad-adventure\bin\Debug\net10.0\adventure.exe
+C:\Users\gryho\OneDrive\Desktop\Skola\Kurs 2\Uppgifter\F5 Krapperup\halmstad-adventure\bin\Debug\net10.0\adventure.deps.json
+C:\Users\gryho\OneDrive\Desktop\Skola\Kurs 2\Uppgifter\F5 Krapperup\halmstad-adventure\bin\Debug\net10.0\adventure.runtimeconfig.json
+C:\Users\gryho\OneDrive\Desktop\Skola\Kurs 2\Uppgifter\F5 Krapperup\halmstad-adventure\bin\Debug\net10.0\adventure.dll
+C:\Users\gryho\OneDrive\Desktop\Skola\Kurs 2\Uppgifter\F5 Krapperup\halmstad-adventure\bin\Debug\net10.0\adventure.pdb
+C:\Users\gryho\OneDrive\Desktop\Skola\Kurs 2\Uppgifter\F5 Krapperup\halmstad-adventure\obj\Debug\net10.0\adventure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\gryho\OneDrive\Desktop\Skola\Kurs 2\Uppgifter\F5 Krapperup\halmstad-adventure\obj\Debug\net10.0\adventure.AssemblyInfoInputs.cache
+C:\Users\gryho\OneDrive\Desktop\Skola\Kurs 2\Uppgifter\F5 Krapperup\halmstad-adventure\obj\Debug\net10.0\adventure.AssemblyInfo.cs
+C:\Users\gryho\OneDrive\Desktop\Skola\Kurs 2\Uppgifter\F5 Krapperup\halmstad-adventure\obj\Debug\net10.0\adventure.csproj.CoreCompileInputs.cache
+C:\Users\gryho\OneDrive\Desktop\Skola\Kurs 2\Uppgifter\F5 Krapperup\halmstad-adventure\obj\Debug\net10.0\adventure.sourcelink.json
+C:\Users\gryho\OneDrive\Desktop\Skola\Kurs 2\Uppgifter\F5 Krapperup\halmstad-adventure\obj\Debug\net10.0\adventure.dll
+C:\Users\gryho\OneDrive\Desktop\Skola\Kurs 2\Uppgifter\F5 Krapperup\halmstad-adventure\obj\Debug\net10.0\refint\adventure.dll
+C:\Users\gryho\OneDrive\Desktop\Skola\Kurs 2\Uppgifter\F5 Krapperup\halmstad-adventure\obj\Debug\net10.0\adventure.pdb
+C:\Users\gryho\OneDrive\Desktop\Skola\Kurs 2\Uppgifter\F5 Krapperup\halmstad-adventure\obj\Debug\net10.0\adventure.genruntimeconfig.cache
+C:\Users\gryho\OneDrive\Desktop\Skola\Kurs 2\Uppgifter\F5 Krapperup\halmstad-adventure\obj\Debug\net10.0\ref\adventure.dll
