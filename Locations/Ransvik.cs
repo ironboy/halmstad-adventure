@@ -1,6 +1,6 @@
 class Ransvik : Location
 {
-    public override string Name => "Ramsvik";
+    public override string Name => "Ransvik";
 
     
 
