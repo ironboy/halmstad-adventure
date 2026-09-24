@@ -11,11 +11,11 @@ class PoliceStation : Location
     public override string[] Description => [
         _talkedToOmar 
         ? "Du kliver in på den lilla polisstationen." :
-        "Kriminalinspektör Omar Sjöberg, hälsar dig välkommen med en nick. \"Jag förstår inte varför de skickat dig men jag antar att jag får hälsa dig välkommen.\""
+        "Kriminalinspektör Omar Sjöberg, hälsar dig välkommen med en nick.\n\"Jag förstår inte varför de skickat dig men jag antar att jag får hälsa dig välkommen.\""
     ];
 
     public override string[] Actions => [
-        "Se dig runt:LookAround",
+        "Se dig omkring:LookAround",
         "Prata med kriminalinspektören:TalkToOmarSjöberg"
     ];
 
