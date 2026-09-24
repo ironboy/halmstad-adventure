@@ -67,7 +67,7 @@ class ArildChapel : Location
 
 
 
-    public override void North()
+    public override void South()
 
     { 
     if (!_priest.Bribed)
@@ -77,24 +77,11 @@ class ArildChapel : Location
         }
         else
         {
-            base.North();
+            base.South();
         }
 
     }
-    public override void East()
-    {
-    if (!_priest.Bribed)
-
-        {
-            BlockedMessage();
-        }    
-    else
-        {
-        base.East(); 
-        }
-
-    
-    }
+  
 private void BlockedMessage()
 
     {

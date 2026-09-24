@@ -68,7 +68,7 @@ public void GiveWine()
 
         {
             Console.WriteLine("\" Som sagt: kvinnan med den engelska brytning. Fråga kostnären nere i hamn." );
-            Console.WriteLine("Hon satt och ritade piren ela den veckan.\"");
+            Console.WriteLine("Han satt och ritade piren ela den veckan.\"");
         }
         else
         {

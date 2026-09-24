@@ -3,7 +3,7 @@ class HotelReceptionist : Npc
 
     private bool hasSaidNo = false;
 
-    public override string Name=>"Hotellreceptionisten";
+    public override string Name=>"Hotellreceptionisten Rachael";
 
     public override string[] Description => [
         "Receptionisten ser trött och hängig ut",
@@ -13,20 +13,20 @@ class HotelReceptionist : Npc
 
     public override string[] Actions => [
         (!hasSaidNo ? 
-            "Kan du berätta om vem som checkade in igår kväll?:TellAboutYesterdaysGuests":
-            "Det gäller ett mord:AboutAMurder"),
+            "\"Kan du berätta om vem som checkade in igår kväll?\":TellAboutYesterdaysGuests":
+            "\"Det gäller ett mord\":AboutAMurder"),
     ];
 
     public void TellAboutYesterdaysGuests()
     {
-        Console.WriteLine("Jag berättar aldrig om våra gäster.");
+        Console.WriteLine("\"Jag berättar aldrig om våra gäster.\"");
         hasSaidNo = true;
         Console.ReadLine();
     }
 
     public void AboutAMurder()
     {
-        Console.WriteLine("Okej då kan jag göra ett undantag, igår checkade en lång man in i ett singelrum och en rödhårig kvinna gjorde samma, dock väldigt sent på kvällen");
+        Console.WriteLine("\"Okej då kan jag göra ett undantag, igår checkade en lång man in i ett singelrum och lite senare gjorde en kvinna samma sak, dock väldigt sent på kvällen\"");
         Console.ReadLine();
     }
 }

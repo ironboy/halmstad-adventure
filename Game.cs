@@ -22,10 +22,12 @@ class Game : Interactive
 
         // Row 0 is north, column 0 is west. null = nothing there.
         World world = new([
-            [new RuneRoom(), new Hallway()],
-            [null,           new Courtyard()],
-            [null,           new Gate()],
-        ], 0, 0); // 0,0 = RuneRoom col = 0, row = 0
+            [new RustyGarden()],
+            [new ArildChapel()],
+            [new Harbour()]
+        ], 0, 0);
+
+        world.Play();
     }
 
     public void Help()

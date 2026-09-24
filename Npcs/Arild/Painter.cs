@@ -2,7 +2,7 @@ class Painter : Npc
 {
     private bool _gaveSketch;
 
-    public override string Name => "Konstnären";
+    public override string Name => "Konstnären Leo";
 
     public override string[] Description => [
         _gaveSketch

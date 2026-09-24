@@ -30,8 +30,7 @@ class RustyGarden : Location
 
     public void LeaveHotel()
     {
-        // Ska antingen (North, West, East, South)
-        // Måste lägga till gruppens andra locations och väderstreck
+        South();
     }
 
 }
