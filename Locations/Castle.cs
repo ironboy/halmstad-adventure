@@ -15,11 +15,11 @@ class Castle : Location
         "En slottsförvaltare står i entrén."
     ];
     public override string[] Actions => [
-        "Leta igenom slottet efter figuren:Letaledtrad",
+        "Leta igenom slottet efter figuren:SearchForClues",
         "Prata med slottsförvaltaren:TalkToCastleManager"
     ];
 
-    public void Letaledtrad()
+    public void SearchForClues()
     {
         Console.WriteLine(_searchclues
             ? "Att leta igenom slottet igen gav inga nya ledtrådar."
