@@ -22,8 +22,8 @@ class Game : Interactive
 
         // Row 0 is north, column 0 is west. null = nothing there.
         World world = new([
-            [new Josefinelust(),new SilverCave()],
-            [null,          null],
+            [new Path(),     new SilverCave()],
+            [null,           new Josefinelust()],
             [null,           null],
         ], 0, 0); // 0,0 = RuneRoom col = 0, row = 0
 
