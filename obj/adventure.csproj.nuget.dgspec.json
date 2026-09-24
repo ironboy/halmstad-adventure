@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\gryho\\OneDrive\\Desktop\\Skola\\Kurs 2\\Uppgifter\\F5 Krapperup\\halmstad-adventure\\adventure.csproj": {}
+    "/Users/juliaborowska/Desktop/IBUZOR/halmstad-adventure/adventure.csproj": {}
   },
   "projects": {
-    "C:\\Users\\gryho\\OneDrive\\Desktop\\Skola\\Kurs 2\\Uppgifter\\F5 Krapperup\\halmstad-adventure\\adventure.csproj": {
+    "/Users/juliaborowska/Desktop/IBUZOR/halmstad-adventure/adventure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\gryho\\OneDrive\\Desktop\\Skola\\Kurs 2\\Uppgifter\\F5 Krapperup\\halmstad-adventure\\adventure.csproj",
+        "projectUniqueName": "/Users/juliaborowska/Desktop/IBUZOR/halmstad-adventure/adventure.csproj",
         "projectName": "adventure",
-        "projectPath": "C:\\Users\\gryho\\OneDrive\\Desktop\\Skola\\Kurs 2\\Uppgifter\\F5 Krapperup\\halmstad-adventure\\adventure.csproj",
-        "packagesPath": "C:\\Users\\gryho\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\gryho\\OneDrive\\Desktop\\Skola\\Kurs 2\\Uppgifter\\F5 Krapperup\\halmstad-adventure\\obj\\",
+        "projectPath": "/Users/juliaborowska/Desktop/IBUZOR/halmstad-adventure/adventure.csproj",
+        "packagesPath": "/Users/juliaborowska/.nuget/packages/",
+        "outputPath": "/Users/juliaborowska/Desktop/IBUZOR/halmstad-adventure/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\gryho\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/Users/juliaborowska/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net10.0"
@@ -61,7 +61,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.400/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/10.0.400/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.CSharp": "(,4.7.32767]",
             "Microsoft.VisualBasic": "(,10.4.32767]",
