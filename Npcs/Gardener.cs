@@ -2,6 +2,7 @@ class Gardener : Npc
 {
     private bool _askedForHelp;
     private bool _glassesFound;
+    public bool GlassesFound => _glassesFound;
 
     public override string Name => "Gardener";
 
