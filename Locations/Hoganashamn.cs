@@ -44,6 +44,7 @@ class Hoganashamn : Location
             Console.WriteLine(Trollmarks ? 
             "Omar Sjöberg: \"Vi borde gå syd till Rättsmedicin och få info om den döda kroppen.\"" 
             : "Omar Sjöberg: \"Vi borde kolla omkring hamnen lite mer.\"");
+        Console.ReadLine();
     }
 
     public override void West()
@@ -54,6 +55,7 @@ class Hoganashamn : Location
             Console.WriteLine(Trollmarks ? 
             "Omar Sjöberg: \"Vi borde gå syd till Rättsmedicin och få info om den döda kroppen.\"" 
             : "Omar Sjöberg: \"Vi borde kolla omkring hamnen lite mer.\"");
+        Console.ReadLine();
     }
 
     public override void East()
@@ -64,6 +66,7 @@ class Hoganashamn : Location
             Console.WriteLine(Trollmarks ? 
             "Omar Sjöberg: \"Vi borde gå syd till Rättsmedicin och få info om den döda kroppen.\"" 
             : "Omar Sjöberg: \"Vi borde kolla omkring hamnen lite mer.\"");
+        Console.ReadLine();
     }
 
     public override void South()
@@ -73,8 +76,12 @@ class Hoganashamn : Location
             WentSouth = true;
             base.South();
         }
-        else 
+        else
+        {
             Console.WriteLine("Omar Sjöberg: \"Vi borde kolla omkring hamnen lite mer.\"");
+            Console.ReadLine();   
+        }
+            
         
     }
     
