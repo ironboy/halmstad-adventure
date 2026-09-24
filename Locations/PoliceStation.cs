@@ -3,15 +3,15 @@
 
 class PoliceStation : Location
 {   
-    private readonly OmarSjoberg _omarSjoberg = new();
+    private OmarSjoberg _omarSjoberg = new();
      private bool _talkedToOmar;
 
     public override string Name => "Polisstationen i Höganäs";
 
     public override string[] Description => [
-        _talkedToOmar 
-        ? "Du kliver in på den lilla polisstationen." :
-        "Kriminalinspektör Omar Sjöberg, hälsar dig välkommen med en nick.\n\"Jag förstår inte varför de skickat dig men jag antar att jag får hälsa dig välkommen.\""
+        !_talkedToOmar 
+        ? "Du kliver in på den lilla polisstationen. \nKriminalinspektör Omar Sjöberg hälsar med en nick.\n\"Jag förstår inte varför de skickat dig men jag antar att jag får hälsa dig välkommen.\""
+        : "Det är en liten polisstation, Omar väntar otåligt på att ni ska åka till hamnen."
     ];
 
     public override string[] Actions => [
@@ -22,6 +22,7 @@ class PoliceStation : Location
     public void TalkToOmarSjöberg()
     {
         _omarSjoberg.Run();
+        _talkedToOmar = true;
     }
 
     public void LookAround()

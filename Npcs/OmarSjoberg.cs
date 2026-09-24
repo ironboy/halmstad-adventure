@@ -9,9 +9,9 @@ class OmarSjoberg : Npc
     bool introduction;
     bool askedAboutCase;
 
-    public override string[] Description =>  [ !introduction
+    public override string[] Description =>  [ !introduction || askedAboutCase
        ? "Skeptisk kollega på polisstationen i Höganäs."
-       : "Omar är otålig."
+       : "Jag förstod det..",
     ];
 
     public override string[] Actions => !introduction ? [

@@ -1,8 +1,12 @@
 // Example Npc: has its own menu, remembers what you've said to it.
 
+using System.Collections.Concurrent;
+
 class Coroner : Npc
 {
     public bool GetReport;
+
+    public bool ReportTaken;
 
     public override string Name => "Dr. Lindqvist";
 
@@ -10,9 +14,9 @@ class Coroner : Npc
           "Dr. Lindqvist är djupt koncentrerad när du kommer in."
     ];
 
-    public override string[] Actions => GetReport
-        ? ["Prata med Dr Lindqvist:TalktToCoroner"]
-        : ["Fråga om obduktionsrapporten:AskForReport"];
+    public override string[] Actions =>
+        ["Prata med Dr Lindqvist:TalkToCoroner",
+        "Fråga om obduktionsrapporten:AskForReport"];
 
     public void AskForReport()
     {
@@ -24,7 +28,20 @@ class Coroner : Npc
 
     public void TalkToCoroner()
     {
-        Console.WriteLine("Jag är upptagen.");
-        Console.ReadLine();
+        if (!GetReport)
+        {
+            Console.WriteLine("Jag är upptagen");
+            Console.ReadLine();
+        }
+        else if (!ReportTaken)
+        {
+            Console.WriteLine("Kroppen är obducerad.");
+            Console.ReadLine();
+        }
+        else
+        {
+            Console.WriteLine("Jag har annat jag behöver jobba med nu.");
+            Console.ReadLine();
+        }
     }
 }
