@@ -8,31 +8,28 @@ class Game : Interactive
     public override string[] Description => ["Ett mord på Kullahalvön. Kullamannen? Eller något värre?"];
 
     public override string[] Actions => [
-        "Start game:Start",
-        "Help:Help"
+        "Starta spel:Start",
+        "Hjälp:Help"
     ];
 
-    protected override string ExitLabel => "Quit";
+    protected override string ExitLabel => "Avsluta spelet";
 
     public void Start()
     {
-        // Everything is created fresh, so a new game starts from scratch:
-        // new locations (their state is reset) and an empty inventory.
         Player.Inventory.Clear();
 
         // Row 0 is north, column 0 is west. null = nothing there.
         World world = new([
-            [new RuneRoom(), new Hallway()],
-            [null,           new Courtyard()],
-            [null,           new Gate()],
-        ], 0, 0); // 0,0 = RuneRoom col = 0, row = 0
+            [new Gang5(), new Slottsbiblioteket(), new Reception()],
+            [null,        new Kallare(),           null           ],
+        ], 1, 0); // start: col 1, row 0 = Slottsbiblioteket
 
         world.Play();
     }
 
     public void Help()
     {
-        Console.WriteLine("Pick a number and press Enter. 0 always takes you back.");
+        Console.WriteLine("Välj ett nummer och tryck Enter. 0 tar dig alltid tillbaka.");
         Console.ReadLine();
     }
 }
