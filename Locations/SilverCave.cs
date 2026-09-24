@@ -158,6 +158,7 @@ class SilverCave : Location
             }
         }
         Console.WriteLine($"Grattis! Du har klarat quizet. Du får en \"QUIZ-MASTER BADGE!\"");
+        Console.WriteLine("Du kollar igenom datorn men märker att det är en ren installation av windows bara...Du slösade din tid");
         Player.Inventory.Add("QUIZ-MASTER BADGE");
         _quizComplete = true;
         Console.ReadKey();
