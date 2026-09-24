@@ -21,11 +21,10 @@ class Game : Interactive
         Player.Inventory.Clear();
 
         // Row 0 is north, column 0 is west. null = nothing there.
+        
         World world = new([
-            [new RuneRoom(), new Hallway()],
-            [null,           new Courtyard()],
-            [null,           new Gate()],
-        ], 0, 0); // 0,0 = RuneRoom col = 0, row = 0
+            [new RustyGarden()] //En av de andra platser T.EX(Arlids Hamn)]
+        ], 0, 0); 
 
         world.Play();
     }
