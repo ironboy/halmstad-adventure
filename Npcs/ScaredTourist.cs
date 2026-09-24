@@ -4,6 +4,7 @@ class ScaredTourist : Npc
     public override string Name => "Rädd turist";
 
     public bool Scared {get; private set;} = true;
+    public bool ToldAboutBush  {get; private set;} = false;
     public override string[] Description =>[
         "Turisten har bermuda-skjorta och shorts",
         "och ser ut som en nybliven pensionär.",
@@ -37,7 +38,8 @@ class ScaredTourist : Npc
     public void AskAgain()
     {
         Console.WriteLine("\"Jag såg något konstigt i busken men jag var så rädd så jag våga inte kolla\" säger turisten");
+        ToldAboutBush = true;
         Console.ReadKey();
-
+        Menu.Close();
     }
 }

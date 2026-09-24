@@ -103,7 +103,6 @@ class SilverCave : Location
                 Console.WriteLine($"OGILTIG INMATNING, FÖRSÖK IGEN!");
                 Console.ReadKey();
             }
-            
         }
         answeredCorrectly = false;
         
