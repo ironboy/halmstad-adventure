@@ -1,6 +1,6 @@
 // The simplest possible location: just a description. Exits are automatic.
 
-class Hallway : Location
+/* class Hallway : Location
 {
     public override string Name => "Hallway";
 
@@ -9,3 +9,4 @@ class Hallway : Location
         "Torches flicker along the walls."
     ];
 }
+*/
