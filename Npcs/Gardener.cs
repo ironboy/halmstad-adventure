@@ -75,9 +75,9 @@ class Gardener : Npc
 
     public void AskWhyInAHurry()
     {
-        Console.WriteLine("\"Bråttom är knappast ordet - hon flydde." +
+        Console.WriteLine("\"Bråttom är knappast ordet, hon flydde." +
         " Blek som ett spöke, och innan hon försvann in i slottet såg" +
-        " jag henne kasta en snabb blick över axeln, som om något - eller någon - jagade henne.\"");
+        " jag henne kasta en snabb blick över axeln, som om något, eller någon, jagade henne.\"");
         Console.ReadLine();
     }
 
