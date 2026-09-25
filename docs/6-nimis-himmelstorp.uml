@@ -1,0 +1,32 @@
+
+class Location {
+  +Name : string
+  +Description : string[]
+  +Actions : string[]
+  +North()
+  +South()
+  +East()
+  +West()
+}
+
+class Nimis extends Location {
+  -_hermit : Hermit
+  +LookAround()
+  +TalkToHermit()
+}
+
+class Npc {
+  +Name : string
+  +Description : string[]
+  +Actions : string[]
+  +Run()
+}
+
+class Hermit extends Npc {
+  +AskedAboutLight : bool
+  +AskAboutNimis()
+  +AskAboutLighthouse()
+  +Leave()
+}
+
+Nimis --> Hermit : has a
