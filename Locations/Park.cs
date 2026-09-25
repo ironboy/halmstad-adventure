@@ -18,7 +18,7 @@ class Park : Location
     public void LookAround()
     {
         Console.WriteLine("Du ser att trädgårdsmästaren gräver runt frenetiskt och" +
-        "" där har lämnats jordhögar lite här och var.");
+        " där har lämnats jordhögar lite här och var.");
         Console.ReadLine();
     }
 
