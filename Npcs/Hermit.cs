@@ -2,16 +2,16 @@ class Hermit : Npc
 {
     public bool AskAboutLight;
 
-    public override string Name => "Hermit";
+    public override string Name => "Eremiten";
 
     public override string[] Description => [
         "En gammal man sitter vid en elden, med blicken fäst vid Nimis."
     ];
 
     public override string[] Actions => [
-        "Ask about Nimis:AskAboutNimis",
-        "Ask about the lighthouse:AskAboutLighthouse",
-        "Leave:Leave"
+        "Fråga om Nimis:AskAboutNimis",
+        "Fråga om fyren:AskAboutLighthouse",
+        "Gå därifrån:Leave"
     ];
 
     public void AskAboutNimis()
