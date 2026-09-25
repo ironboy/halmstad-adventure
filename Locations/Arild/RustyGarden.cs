@@ -33,4 +33,33 @@ class RustyGarden : Location
         South();
     }
 
+    // Hand over to the priest's own menu, like TalkToGuard in RuneRoom
+    public void TalkToPriest() => _priest.Run();
+
+
+
+    public override void LeaveHotel()
+
+    { 
+    if (!_receptionist.Bribed)
+
+        {
+            BlockedMessage();
+        }
+        else
+        {
+            base.South();
+        }
+
+    }
+  
+private void BlockedMessage()
+
+    {
+    Console.WriteLine("Du kan inte gå härifrån än. Prästen vet något - det känner du på dig");
+    Console.ReadLine();
+    }
+}
+
+
 }
