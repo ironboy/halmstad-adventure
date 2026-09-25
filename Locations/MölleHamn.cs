@@ -7,8 +7,6 @@ class MölleHamn : Location
             "Det finns en hint av olja och fisk-lukt i luften"//vinden
    
     ];
-    
-    
     public override string[] Actions => 
         ShedSearched // Condition
         ? ["Search the shed:Searchtheshed"] // so this is a way to makle an if and else, cant make an else if tho ? :
@@ -17,9 +15,14 @@ class MölleHamn : Location
             "-Go in and search:TakeTheHook", // yeah less desc. and more method bahh
             "-Leave the area:LeaveIt"];
 
+        public void LeaveIt()  // ska ta mig tillbaka metoden funkar inte or dvs leave it men forsätter senare.
+        {
+            Menu.Close(); // Ahh där satt den dock ng min efter förra kommentaren ^_^ ctrl+shift+f = gefunen 08:22 09-24-26 ty Lead
+
+        }
         
-        public bool ShedSearched;
-     public void Searchtheshed()
+    public bool ShedSearched;
+    public void Searchtheshed()
     {
         ShedSearched = true;    
     }
@@ -38,10 +41,7 @@ class MölleHamn : Location
 
     Console.ReadKey(); // this line had to be put in so it read, otherwise it just flashed the CW
 }
-    public void LeaveIt()
-    {
-        
-    }
+    
 
         
     }
