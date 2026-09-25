@@ -23,7 +23,7 @@ public void LookAround()
 
 public void TalkToHermit() => _hermit.Run();
 
-public override void South()
+public override void East()
     {
         if (!_hermit.AskAboutLight)
         {
