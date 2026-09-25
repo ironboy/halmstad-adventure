@@ -13,7 +13,7 @@ class Mathematician : Npc
        "Fråga vad han känner till Kulla mannen:AskAboutMyth",
        Player.Has("QUIZ-MASTER BADGE")
         ? "Visa quiz badge till matematikern:ShowQuizBadge"
-        : "-"   
+        : "-"   //Remove items from inventory
     ];
     public void AskDirections()
     {
