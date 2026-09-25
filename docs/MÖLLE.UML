@@ -1,0 +1,42 @@
+MölleHamn ──|> Location
+Hotel     ──|> Location
+Ransvik   ──|> Location
+
+Gammalfiskare ──|> Npc
+Receptionist  ──|> Npc
+Badgäst       ──|> Npc
+
+MölleHamn ────── Gammalfiskare
+Hotel ─────────── Receptionist
+
+┌──────────────────┐                
+│    MölleHamn     │                    
+├──────────────────┤
+│ - ShedSearched   │                            
+├──────────────────┤
+│ + Searchtheshed()│
+│ + TakeTheHook()  │
+└────────┬─────────┘
+         ◆
+         │
+         │
+┌────────▼─────────┐
+│     Hårtuss      │
+└──────────────────┘
+    ShedSearched
+
+
+│    Hotel   │            
+├──────────────────┤
+│ - LookIntoLedger |
+├──────────────────┤
+│ + LookIntoLedger │
+│ + TalkToReceptionist  │
+└────────┬───────── 
+         ◆
+         │
+         │
+┌────────▼─────────┐
+│   LedgerEntries  |
+└──────────────────┘
+
