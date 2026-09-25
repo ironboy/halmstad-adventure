@@ -10,9 +10,11 @@ class  GrandHotel: Location
     ];
  
     public Receptionist _receptionist; // we are making the list accesible for the recptionist, so whe can use it in the class
+public Badgäst _badgäst;
     public GrandHotel()
     {
         _receptionist = new Receptionist(_ledgerEntries); // 
+        _badgäst = new Badgäst();
     }
      public override string Name => "Grand Hotell";
  
@@ -29,6 +31,7 @@ class  GrandHotel: Location
      public override string[] Actions => [
           "Titta i hotelliggaren:LookIntoLedger",
           "Prata med receptionisten Louise:TalkToReceptionist",
+          "Prata med badgästen Erik:TalkToBadgäst",
         
         
          
@@ -51,6 +54,10 @@ class  GrandHotel: Location
     public void TalkToReceptionist()
     {
         _receptionist.Run();
+    }
+    public void TalkToBadgäst()
+    {
+        _badgäst.Run();
     }
   
 }
