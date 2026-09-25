@@ -2,8 +2,6 @@
 class Receptionist : Npc
 {
 
-
-
     public bool AllowsLookInLedger;
 
     public List<string> Besökare = ["James Fawnhill (Datum)","Thomas Andersson","Claus von Braum","Jenny Karlsson","Emelie J. Montgomery"];
@@ -66,6 +64,7 @@ class Receptionist : Npc
         else
         {
             Console.WriteLine("Jasså, är det för dyrt för en Malmö bo eller?");
+            
         }
 
         Console.ReadLine();

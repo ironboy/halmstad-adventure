@@ -1,22 +1,19 @@
-using System.Security.Cryptography.X509Certificates;
-using System.Xml.Serialization;
-
-class Badgäst : Npc
-{
-    public override string Name => "Badgästen Bob";    
+// class Badgäst
+// {
+//     public override string Name => "Badgästen Bob";    
  
-    public bool Villhansvara;
+//     public bool Villhansvara;
 
-    public string []  Description =>[
-        ""
-        ""
-        ""
+//     public string []  Description =>[
+//         ""
+//         ""
+//         ""
 
         
-    ];
+//     ];
      
 
 
-}
+// }
 
 
