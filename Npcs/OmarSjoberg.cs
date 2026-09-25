@@ -9,7 +9,7 @@ class OmarSjoberg : Npc
     bool introduction;
     bool askedAboutCase;
 
-    public override string[] Description =>  [ !introduction && askedAboutCase
+    public override string[] Description =>  [ !introduction
        ? "Skeptisk kollega på polisstationen i Höganäs."
        : "Jag förstod det..",
     ];
@@ -42,6 +42,7 @@ class OmarSjoberg : Npc
         askedAboutCase = true;
         Console.WriteLine("\"Kroppen hittades i Höganäs hamn. Vi åker på en gång.\"");
         Console.ReadLine();
+        Menu.Close();
     }
 
     public void TalkToOmar()

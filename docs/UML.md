@@ -1,5 +1,7 @@
 # UML – Jane the Ripper (halmstad-adventure)
 
+
+
 ```mermaid
 classDiagram
     direction TB
