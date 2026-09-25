@@ -23,14 +23,15 @@ class Himmelstorp : Location
         List<string> returnActions = new List<string>();
 
         returnActions.Add(hikers.TalkedToHikers ? "Prata med vandrarna igen:TalkToHikers" : "Prata med vandrarna:TalkToHikers");
-        if (hikers.TalkedToHikers)
-        {
-            returnActions.Add("Gå till Klippstranden:GoToBeach");
-        }
+       
         if (!_searchTheForest)
         {
             returnActions.Add("Sök igenom skogen:SearchTheForest");
             returnActions.Add("Gå djupare in i skogen:GoDeeperInToTheForest");
+        }
+         if (hikers.TalkedToHikers)
+        {
+            returnActions.Add("Gå till Klippstranden:GoToBeach");
         }
 
         return returnActions.ToArray();
