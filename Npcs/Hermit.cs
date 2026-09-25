@@ -2,7 +2,7 @@ class Hermit : Npc
 {
     public bool AskAboutLight;
 
-    public override string Name => "Eremiten";
+    public override string Name => "Hermit";
 
     public override string[] Description => [
         "En gammal man sitter vid en elden, med blicken fäst vid Nimis."

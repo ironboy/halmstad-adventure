@@ -23,6 +23,19 @@ public void LookAround()
 
 public void TalkToHermit() => _hermit.Run();
 
+public override void South()
+    {
+        if (!_hermit.AskAboutLight)
+        {
+            Console.WriteLine("Något får dig att vilja stanna kvar lite till.");
+            Console.ReadLine();
+        }
+        else
+        {
+            base.South();
+        }
+    }
+
 
 }
 
