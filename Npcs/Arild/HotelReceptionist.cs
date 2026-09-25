@@ -3,6 +3,7 @@ class HotelReceptionist : Npc
 
     private bool hasSaidNo = false;
 
+    public bool Bribed;
     public override string Name=>"Hotellreceptionisten Rachael";
 
     public override string[] Description => [
@@ -28,5 +29,6 @@ class HotelReceptionist : Npc
     {
         Console.WriteLine("\"Okej då kan jag göra ett undantag, igår checkade en lång man in i ett singelrum och lite senare gjorde en kvinna samma sak, dock väldigt sent på kvällen\"");
         Console.ReadLine();
+        
     }
 }

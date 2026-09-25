@@ -26,42 +26,5 @@ class RustyGarden : Location
         Console.WriteLine("Inget särskilt här, som vilket landsortshotell som helst.");
         Console.ReadLine();
     }
-<<<<<<< HEAD
 
-    public void LeaveHotel()
-    {
-        South();
-    }
-
-    // Hand over to the priest's own menu, like TalkToGuard in RuneRoom
-    public void TalkToPriest() => _priest.Run();
-
-
-
-    public override void LeaveHotel()
-
-    { 
-    if (!_receptionist.Bribed)
-
-        {
-            BlockedMessage();
-        }
-        else
-        {
-            base.South();
-        }
-
-    }
-  
-private void BlockedMessage()
-
-    {
-    Console.WriteLine("Du kan inte gå härifrån än. Prästen vet något - det känner du på dig");
-    Console.ReadLine();
-    }
-}
-
-
-=======
->>>>>>> 8ba71a190398857255b0f8dff3907ee7a430afdd
 }
