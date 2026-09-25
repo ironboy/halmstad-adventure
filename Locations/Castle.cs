@@ -31,7 +31,6 @@ class Castle : Location
     // An item that opens ANOTHER object's menu: just call its Run()
     public void TalkToCastleManager()
     {
-        _castlemanager.CastleSearched = _searchclues;
         _castlemanager.Run();
     }
 

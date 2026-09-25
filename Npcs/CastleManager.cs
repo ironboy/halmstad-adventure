@@ -6,28 +6,30 @@ class CastleManager : Npc
 {
     // Set by Castle right before Run(), so the manager knows whether
     // the player has searched the castle yet (that's where the cameras are found).
-    public bool CastleSearched;
-    public bool AskedAboutCamera;
-    public bool Threatened;
-    public bool CameraWatched;
+    private bool _castleSearched;
+    private bool _askedAboutCamera;
+    private bool _threatened;
+    private bool _cameraWatched;
+    public bool Threatened => _threatened;
+    public bool CameraWatched => _cameraWatched;
 
     public override string Name => "Slottsförvaltare";
 
     public override string[] Description => [
-        !CastleSearched
+        !_castleSearched
             ? "Slottsförvaltaren nickar kort men verkar upptagen med annat. Jag borde leta efter ledtrådar först."
-            : CameraWatched
+            : _cameraWatched
                 ? "Slottsförvaltaren ler stelt."
-                : Threatened
+                : _threatened
                     ? "Slottsförvaltaren muttrar argt för sig själv."
-                    : AskedAboutCamera
+                    : _askedAboutCamera
                         ? "Slottsförvaltaren korsar armarna."
                         : "Slottsförvaltaren möter dig i entrén. \"Hur kan jag stå till tjänst?\""
     ];
 
     public override string[] Actions =>
-        !CastleSearched ? ["Fråga om hjälp:AskBeforeSearch"]
-        : AskedAboutCamera ? ["Hota med att stänga ner slottet under utredningen:Threaten"]
+        !_castleSearched ? ["Fråga om hjälp:AskBeforeSearch"]
+        : _askedAboutCamera ? ["Hota med att stänga ner slottet under utredningen:Threaten"]
         : ["Fråga om att få se övervakningsfilmen:AskAboutCamera"];
 
     public void AskBeforeSearch()
@@ -40,15 +42,15 @@ class CastleManager : Npc
 
     public void AskAboutCamera()
     {
-        AskedAboutCamera = true;
+        _askedAboutCamera = true;
         Console.WriteLine("\"Det kan jag tyvärr inte visa dig. Det handlar om våra gästers integritet.\"");
         Console.ReadLine();
     }
 
     public void Threaten()
     {
-        Threatened = true;
-        CameraWatched = true;
+        _threatened = true;
+        _cameraWatched = true;
         Console.WriteLine("\"Om du inte visar mig filmen får jag stänga ner slottet under hela utredningen.\"");
         Console.WriteLine("Slottsförvaltaren suckar. \"Okej, okej... Kom, jag visar dig filmen.\"");
         Console.WriteLine("Du ser figuren på övervakningskameran – den bad om vägbeskrivning till biblioteket.");
