@@ -1,9 +1,9 @@
 class MölleHamn : Location
 {
    
-   public override string Name  => "MölleHamn";
-  public Npc Npc = new Gammalfiskare();
-     private readonly Gammalfiskare _ = new();
+//    public override string Name  => "MölleHamn";
+//   public Npc Npc = new Gammalfiskare();
+//      private readonly Gammalfiskare _ = new();
     public override string[]  Description => [
             "Du anländer till en molloken syn vid Möllehamn, du känner hur det börjar blåsa upp till storm och vill ta dig inomhus snart",
             "Det finns en hint av olja och fisk-lukt i luften"//vinden
@@ -13,17 +13,17 @@ class MölleHamn : Location
    
     ];
 
-    public void TalkToPudding()
-{
-    _.Prata();
-}
+//     public void TalkToPudding()
+// {
+//     _.Prata();
+// }
     public override string[] Actions => 
     
         ShedSearched // Condition
 
-          ? [ "Talk to Pudding:TalkToPudding",
+          ? [
             "Search the shed:Searchtheshed"] // so this is a way to makle an if and else, cant make an else if tho ? :
-        : ["TalkToPudding",
+        : [
 
         
             "Search the shed:Searchtheshed", // needed to have the same pattern, but i dont want it too have 2 sheds and should add an desc. to Mölle for the conspicuous sheds
