@@ -32,6 +32,7 @@ class ScaredTourist : Npc
         Console.WriteLine("Du visar bluffbevisen till turisten");
         Console.WriteLine("Omg jag är så dum! Man är inte så klok när man är så gammal som mig\nNu ska jag åka hem och tvätta byxorna... \"Säger han\"");
         Scared = false;
+        Player.Inventory.Remove("Bluffbevis");
         Console.ReadKey();
         Menu.Close();
     }

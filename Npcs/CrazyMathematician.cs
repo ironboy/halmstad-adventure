@@ -13,7 +13,7 @@ class Mathematician : Npc
        "Fråga vad han känner till Kulla mannen:AskAboutMyth",
        Player.Has("QUIZ-MASTER BADGE")
         ? "Visa quiz badge till matematikern:ShowQuizBadge"
-        : "-"   //Remove items from inventory
+        : "Fråga om en quiz:GiveQuiz"
     ];
     public void AskDirections()
     {
@@ -66,5 +66,90 @@ Han nickar, som om det förklarade allt.");
     Player.Inventory.Remove("QUIZ-MASTER BADGE");
     hasVanished = true;
     Menu.Close();
+    }
+    public void GiveQuiz()
+    {
+        Console.WriteLine("Matematikern ger dig en liten quiz:");
+        Console.ReadKey();
+        bool answeredCorrectly = false;
+
+        while (!answeredCorrectly)
+        {   Console.Clear();
+            Console.WriteLine($"Fråga 1. 3x + 5 = 20. Vad är x?\n1. 4?\n2. 5?\n3. 8?");
+            if(int.TryParse(Console.ReadLine(), out int answer))
+            {
+                if (answer == 2)
+                {
+                    Console.WriteLine($"CORRECT!");
+                    Console.ReadKey();
+                    answeredCorrectly = true;
+                }
+                else
+                {
+                    Console.WriteLine($"FEL, TESTA IGEN!");
+                    Console.ReadKey();
+                }
+            }
+            else
+            {
+                Console.WriteLine($"OGILTIG INMATNING, FÖRSÖK IGEN!");
+                Console.ReadKey();
+            }
+        }
+        answeredCorrectly = false;
+        
+        while (!answeredCorrectly)
+        {
+            Console.Clear();
+            Console.WriteLine($"Fråga 2. 4x - 7 = 2x + 9. Vad är x?\n1. 6?\n2. 1?\n3. 8?");
+            if(int.TryParse(Console.ReadLine(), out int answer))
+            {
+                if(answer == 3)
+                {
+                    Console.WriteLine($"CORRECT!");
+                    Console.ReadKey();
+                    answeredCorrectly = true;
+                }
+                else
+                {
+                    Console.WriteLine($"FEL, TESTA IGEN!");
+                    Console.ReadKey();
+                }
+            }
+            else
+            {
+                Console.WriteLine($"OGILTIG INMATNING, FÖRSÖK IGEN!");
+                Console.ReadKey();
+            }
+        }
+        answeredCorrectly = false;
+        
+        while (!answeredCorrectly)
+        {
+            Console.Clear();
+            Console.WriteLine($"Fråga 3. 1 + 1 = ?\n1. 1?\n2. 11?\n3. 111?");
+            if(int.TryParse(Console.ReadLine(), out int answer))
+            {
+                if (answer == 1)
+                {
+                    Console.WriteLine($"CORRECT!");
+                    Console.ReadKey();
+                    answeredCorrectly = true;
+                }
+                else
+                {
+                    Console.WriteLine($"FEL, TESTA IGEN!");
+                    Console.ReadKey();
+                }
+            }
+            else
+            {
+                Console.WriteLine($"OGILTIG INMATNING, FÖRSÖK IGEN!");
+                Console.ReadKey();
+            }
+        }
+        Console.WriteLine("\"Grattis du klarade quizet!\" Säger han glatt.");
+        Console.WriteLine("Du suckar tyst för dig själv. Det där var bortkastad tid.");
+        Console.ReadKey();
     }
 }

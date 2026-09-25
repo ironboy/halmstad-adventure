@@ -38,6 +38,7 @@ class SilverCave : Location
             Console.WriteLine("Du anger korrekt pin-kod och musiken tystnar");
             Console.WriteLine("Du ser blodspår på högtalaren så du tar med den som bevis");
             Player.Inventory.Add("Högtalare");
+            Player.Inventory.Remove("PINKOD");
             _speakerIsOff = true;
             Menu.Close();
         }
