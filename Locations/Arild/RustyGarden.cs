@@ -14,7 +14,6 @@ class RustyGarden : Location
     public override string[] Actions => [
         "Gå fram till Hotellreceptionsten:TalkToHotelReceptionist",
         "Kolla runt:LookAround",
-        "Lämna Hotell:LeaveHotel"
     ];
 
     public void TalkToHotelReceptionist()
@@ -27,10 +26,4 @@ class RustyGarden : Location
         Console.WriteLine("Inget särskilt här, som vilket landsortshotell som helst.");
         Console.ReadLine();
     }
-
-    public void LeaveHotel()
-    {
-        South();
-    }
-
 }
