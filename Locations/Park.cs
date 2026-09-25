@@ -6,8 +6,8 @@ class Park : Location
     public override string Name => "Park";
 
     public override string[] Description => [
-        "En finklippt gräsmatta fylld med blomster, trimmade träd och mot öster ett slott." +
-        " Mitt i blomstern sitter det en trädgårdsmästare och påtar i rabatten",
+        "En finklippt gräsmatta fylld med blomster, trimmade träd" + 
+        " och mot öster ett slott.Mitt i blomstern sitter det en trädgårdsmästare och påtar i rabatten",
         _talkedToGardener ? "Trädgårdsmästaren har återgått till sitt arbete." : ""
     ];
 
@@ -17,7 +17,8 @@ class Park : Location
 
     public void LookAround()
     {
-        Console.WriteLine("Du ser att trädgårdsmästaren gräver runt frenetiskt och där har lämnats jordhögar lite här och var.");
+        Console.WriteLine("Du ser att trädgårdsmästaren gräver runt frenetiskt och" +
+        " där har lämnats jordhögar lite här och var.");
         Console.ReadLine();
     }
 

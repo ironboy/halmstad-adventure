@@ -11,7 +11,8 @@ class Gardener : Npc
             ? "Trädgårdsmästaren ler tacksamt mot dig."
             : _askedForHelp
                 ? "Trädgårdsmästaren väntar otåligt på sina glasögon."
-                : "\"Gå inte på gräset! Mina glasögon ligger där någonstans, jag vill inte att du trampar på dem.\""
+                : "\"Gå inte på gräset! Mina glasögon ligger där någonstans," +
+                "jag vill inte att du trampar på dem.\""
     ];
 
     public override string[] Actions => _glassesFound
@@ -30,56 +31,67 @@ class Gardener : Npc
     public void AskAboutVisitors()
     {
         _askedForHelp = true;
-        Console.WriteLine("\"Vänta lite, kommissarien! Jag hjälper dig gärna med vad du önskar men snälla hjälp mig hitta glasögonen först.\"");
+        Console.WriteLine("\"Vänta lite, kommissarien! Jag hjälper dig gärna med vad du önskar men" + 
+        " snälla hjälp mig hitta glasögonen först.\"");
         Console.ReadLine();
     }
 
     public void SearchGrass()
     {
-        Console.WriteLine("\"Nej, inte där! Akta gräset förresten - mina glasögon kan ligga precis var som helst.\"");
+        Console.WriteLine("\"Nej, inte där! Akta gräset förresten," +
+        " mina glasögon kan ligga precis var som helst.\"");
         Console.ReadLine();
     }
 
     public void SearchBush()
     {
-        Console.WriteLine("\"Nej... fast vänta, hon sprang inte ens nära busken. Tänk efter, var stod jag när hon rände förbi?\"");
+        Console.WriteLine("\"Nej... fast vänta, hon sprang inte ens nära busken." + 
+        " Tänk efter, var stod jag när hon rände förbi?\"");
         Console.ReadLine();
     }
 
     public void SearchFlowerbed()
     {
         _glassesFound = true;
-        Console.WriteLine("\"Ja! Där, bland blommorna - det var precis där hon sprang rätt in i mig!\"");
+        Console.WriteLine("\"Ja! Där, bland blommorna, det var precis där hon sprang rätt in i mig!\"");
+        Console.WriteLine("<Enter>");
         Console.ReadLine();
         Console.WriteLine("Du ser nått som reflekterar solljuset tillbaka till dig. Glasögonen!");
-        Console.WriteLine("Trädgårdsmästaren sätter på sig glasögonen och andas ut. \"Tack, kommissarien. Vad ville du veta?\"");
+        Console.WriteLine("Trädgårdsmästaren sätter på sig glasögonen och andas ut." +
+         " Tack, kommissarien. Vad ville du veta?");
         Console.ReadLine();
         Menu.Close();
     }
 
     public void AskWhoSheWas()
     {
-        Console.WriteLine("\"Jag vet inte men hon sprang rakt in i mig häromdagen. Jag tappade glasögonen i smällen -");
+        Console.WriteLine("\"Jag vet inte men hon sprang rakt in i mig häromdagen." + 
+         " Jag tappade glasögonen i smällen -");
         Console.ReadLine();
-        Console.WriteLine("och hon hjälpte inte ens till att leta, bara sprang vidare. Väldigt otrevligt av henne.\"");
+        Console.WriteLine("och hon hjälpte inte ens till att leta, bara sprang vidare." + 
+         " Väldigt otrevligt av henne.\"");
         Console.ReadLine();
     }
 
     public void AskWhyInAHurry()
     {
-        Console.WriteLine("\"Bråttom är knappast ordet - hon flydde. Blek som ett spöke, och innan hon försvann in i slottet såg jag henne kasta en snabb blick över axeln, som om något - eller någon - jagade henne.\"");
+        Console.WriteLine("\"Bråttom är knappast ordet, hon flydde." +
+        " Blek som ett spöke, och innan hon försvann in i slottet såg" +
+        " jag henne kasta en snabb blick över axeln, som om något, eller någon, jagade henne.\"");
         Console.ReadLine();
     }
 
     public void AskIfAnythingOdd()
     {
-        Console.WriteLine("\"Avvikande... nu när du frågar - hon höll krampaktigt i något under jackan. Jag tänkte inte mer på det då.\"");
+        Console.WriteLine("\"Avvikande... nu när du frågar - hon höll krampaktigt i något under jackan." +
+        " Jag tänkte inte mer på det då.\"");
         Console.ReadLine();
     }
 
     public void AskWhereSheWent()
     {
-        Console.WriteLine("\"Vart hon tog vägen? Rakt mot slottets ytterdörr, jag hörde den slå igen bakom henne.\"");
+        Console.WriteLine("\"Vart hon tog vägen? Rakt mot slottets ytterdörr," + 
+        " jag hörde den slå igen bakom henne.\"");
         Console.ReadLine();
     }
 
