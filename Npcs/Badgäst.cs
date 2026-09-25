@@ -1,19 +1,19 @@
-class Badgäst
-{
-    public override string Name => "Badgästen Bob";    
+// class Badgäst
+// {
+//     public override string Name => "Badgästen Bob";    
  
-    public bool Villhansvara;
+//     public bool Villhansvara;
 
-    public string []  Description =>[
-        ""
-        ""
-        ""
+//     public string []  Description =>[
+//         ""
+//         ""
+//         ""
 
         
-    ];
+//     ];
      
 
 
-}
+// }
 
 
