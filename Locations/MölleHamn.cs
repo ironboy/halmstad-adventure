@@ -13,10 +13,13 @@ class MölleHamn : Location
    
     ];
 
-    public void TalkToPudding()
-{
-    _.Prata();
-}
+    //*
+    //  public void TalkToPudding()
+//{
+   
+//}
+     //*
+
     public override string[] Actions => 
     
         ShedSearched // Condition

@@ -1,5 +1,3 @@
-using System.Security.Cryptography.X509Certificates;
-using System.Xml.Serialization;
 
 class Badgäst : Npc
 {
@@ -28,7 +26,7 @@ class Badgäst : Npc
         Console.WriteLine("Jag såg gästen gå mot Ransvik igår kväll.");
         Console.WriteLine("Han verkade ha väldigt bråttom.");
     }
-    public new void Run()
+    public override void Run()
     {
         foreach (string action in Actions)
         {
