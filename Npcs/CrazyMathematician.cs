@@ -10,7 +10,7 @@ class Mathematician : Npc
 
     public override string[] Actions => [
        "Fråga om han vet vägen till grottan:AskDirections",
-       "Fråga vad han känner till Kulla mannen:AskAboutMyth",
+       "Fråga vad han känner till om Kullamannen:AskAboutMyth",
        Player.Has("QUIZ-MASTER BADGE")
         ? "Visa quiz badge till matematikern:ShowQuizBadge"
         : "Fråga om en quiz:GiveQuiz"
