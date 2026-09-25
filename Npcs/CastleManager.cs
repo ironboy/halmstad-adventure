@@ -27,14 +27,13 @@ class CastleManager : Npc
 
     public override string[] Actions =>
         !CastleSearched ? ["Fråga om hjälp:AskBeforeSearch"]
-        : CameraWatched ? ["Wink:Wink"]
         : AskedAboutCamera ? ["Hota med att stänga ner slottet under utredningen:Threaten"]
         : ["Fråga om att få se övervakningsfilmen:AskAboutCamera"];
 
     public void AskBeforeSearch()
     {
         Console.WriteLine("\"Jag kan inte hjälpa dig med något förrän du vet vad du letar efter. " +
-            "Leta igenom slottet ordentligt först – det finns övervakningskameror här och där.\"");
+            "Leta igenom slottet ordentligt först.\"");
         Console.ReadLine();
         Menu.Close();   // back to the room – nothing more to do here yet
     }
@@ -54,11 +53,6 @@ class CastleManager : Npc
         Console.WriteLine("Slottsförvaltaren suckar. \"Okej, okej... Kom, jag visar dig filmen.\"");
         Console.WriteLine("Du ser figuren på övervakningskameran – den bad om vägbeskrivning till biblioteket.");
         Console.ReadLine();
-    }
-
-    public void Wink()
-    {
-        Console.WriteLine("The guard winks back.");
-        Console.ReadLine();
+        Menu.Close();
     }
 }
