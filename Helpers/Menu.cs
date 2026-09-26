@@ -43,7 +43,14 @@ class Menu(string title, Action? action = null)
         foreach (var raw in lines.Skip(1))
         {
             int depth = raw.TakeWhile(c => c == '-').Count();
-            var parts = raw[depth..].Split(':', 2);
+            // Split at the LAST colon, so the text itself may contain colons.
+            // A line without a colon, or ending with one, is a submenu
+            // (and a trailing colon is kept as part of the text).
+            var line = raw[depth..];
+            int colon = line.LastIndexOf(':');
+            string[] parts = colon < 0 || colon == line.Length - 1
+                ? [line]
+                : [line[..colon], line[(colon + 1)..]];
             var title = parts[0].Trim();
 
             // Pop back to the correct parent for this line

@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Adventure Engine Class Diagram</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    --bg: #f7f6f2;
+    --ink: #1f2428;
+    --muted: #5d6670;
+    --rule: #d8d5cc;
+    --panel: #ffffff;
+    --accent: #2f6f8f;
+    --helper: #e8eef3;
+    --student: #fbefd9;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #17191c;
+      --ink: #e6e4de;
+      --muted: #a0a7ae;
+      --rule: #34393f;
+      --panel: #1f2226;
+      --accent: #7fb6d3;
+      --helper: #22303a;
+      --student: #3a2f1e;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #17191c;
+    --ink: #e6e4de;
+    --muted: #a0a7ae;
+    --rule: #34393f;
+    --panel: #1f2226;
+    --accent: #7fb6d3;
+    --helper: #22303a;
+    --student: #3a2f1e;
+  }
+  html { color-scheme: light dark; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+    padding-inline: 16px;
+    padding-block: 32px 48px;
+  }
+  main { max-width: 1100px; margin: 0 auto; }
+  h1 { font-size: 1.6rem; font-weight: 600; margin: 0 0 4px; text-wrap: balance; }
+  h2 { font-size: 1.05rem; font-weight: 600; margin: 32px 0 8px; }
+  .lede { color: var(--muted); margin: 0 0 20px; max-width: 65ch; }
+  .legend { display: flex; flex-wrap: wrap; gap: 10px 22px; font-size: 0.9rem; margin: 0 0 16px; padding: 0; list-style: none; }
+  .legend li { display: flex; align-items: center; gap: 8px; }
+  .swatch { width: 14px; height: 14px; border: 1px solid var(--rule); border-radius: 2px; display: inline-block; }
+  .diagram { background: var(--panel); border: 1px solid var(--rule); border-radius: 6px; padding: 16px; overflow-x: auto; }
+  .diagram pre.mermaid { margin: 0; min-width: 720px; }
+  figcaption { color: var(--muted); font-size: 0.9rem; margin-top: 10px; max-width: 75ch; }
+  .notes { max-width: 70ch; padding-left: 1.2em; margin: 0; }
+  .notes li { margin-bottom: 6px; }
+  code { font-family: "IBM Plex Mono", Menlo, Consolas, monospace; font-size: 0.9em; }
+  pre.source {
+    background: var(--panel); border: 1px solid var(--rule); border-radius: 6px;
+    padding: 14px 16px; overflow-x: auto; font-family: "IBM Plex Mono", Menlo, Consolas, monospace;
+    font-size: 0.82rem; line-height: 1.45; margin: 0;
+  }
+  .hint { color: var(--muted); font-size: 0.9rem; margin: 8px 0 0; }
+</style>
+
+</head>
+<body>
+<main>
+  <h1>Adventure Engine Class Diagram</h1>
+  <p class="lede">The helper classes students are given, and the classes they write themselves. Concrete rooms and characters are shown as generic placeholders. Updated 24/9 with IInteractive, Direction, ToString() and the dev teleport.</p>
+
+  <ul class="legend">
+    <li><span class="swatch" style="background: var(--helper)"></span> Helper classes (given, not meant to be read)</li>
+    <li><span class="swatch" style="background: var(--student)"></span> Student-written classes</li>
+  </ul>
+
+  <figure class="diagram">
+<pre class="mermaid">
+classDiagram
+    direction TB
+
+    class IInteractive {
+        &lt;&lt;interface&gt;&gt;
+        +Name : string
+        +Description : string[]
+        +Actions : string[]
+        +Run()
+    }
+
+    class Interactive {
+        &lt;&lt;abstract&gt;&gt;
+        +Name : string
+        +Description : string[]
+        +Actions : string[]
+        #ExitLabel : string
+        ~AllActions() List~string~
+        +Run()
+        +ToString() string
+    }
+
+    class Direction {
+        &lt;&lt;enumeration&gt;&gt;
+        North
+        East
+        South
+        West
+    }
+
+    class Menu {
+        +Title : string
+        -_children : List~Menu~
+        +Create(lines, instance)$ Menu
+        +Close()$
+        +Run(exitLabel)
+        ~RunOnce(exitLabel) bool
+    }
+
+    class World {
+        -_map : Location[][]
+        -_x : int
+        -_y : int
+        -_byClassName : Dictionary~string, Location~
+        +DevMode : bool
+        +At(x, y) Location
+        +LocationNames : IEnumerable~string~
+        +Find(className) Location
+        +Teleport(className) bool
+        +Play()
+        ~MoveTo(x, y)
+    }
+
+    class Location {
+        &lt;&lt;abstract&gt;&gt;
+        ~World : World
+        ~X : int
+        ~Y : int
+        ~AllActions() List~string~
+        +North()
+        +East()
+        +South()
+        +West()
+        +ShowInventory()
+        +DevTeleport()
+        -Neighbour(direction) Location
+        -Move(direction)
+        -Delta(direction)$
+    }
+
+    class Npc {
+        &lt;&lt;abstract&gt;&gt;
+        #ExitLabel = "Stop talking"
+    }
+
+    class Player {
+        &lt;&lt;static&gt;&gt;
+        +Inventory$ : List~string~
+        +Has(item)$ bool
+    }
+
+    class Game {
+        +Actions : string[]
+        +Start()
+        +Help()
+    }
+
+    class LocationX {
+        -_npc : NpcA
+        -_someFlag : bool
+        +Description : string[]
+        +Actions : string[]
+        +SomeAction()
+        +TalkToNpc()
+        +East()
+    }
+
+    class LocationY {
+        -_someFlag : bool
+        +Actions : string[]
+        +TakeItem()
+    }
+
+    class LocationZ {
+        -_someFlag : bool
+        +Actions : string[]
+        +UseItem()
+    }
+
+    class NpcA {
+        +SomeFlag : bool
+        +Description : string[]
+        +Actions : string[]
+        +SomeReply()
+    }
+
+    IInteractive &lt;|.. Interactive : implements
+    Interactive &lt;|-- Game
+    Interactive &lt;|-- Location
+    Interactive &lt;|-- Npc
+    Location &lt;|-- LocationX
+    Location &lt;|-- LocationY
+    Location &lt;|-- LocationZ
+    Npc &lt;|-- NpcA
+
+    Interactive ..&gt; Menu : Run() builds menu from Actions
+    Menu ..&gt; Interactive : calls methods by name
+    Game ..&gt; World : Start() creates map, sets DevMode
+    World "1" o-- "*" Location : _map grid + _byClassName
+    Location --&gt; World : back-reference
+    Location ..&gt; Direction : exits generated per value
+    Location ..&gt; Menu : Close() after move
+    Location ..&gt; Player : ShowInventory
+    LocationX *-- NpcA : owns, calls Run()
+    LocationY ..&gt; Player : Inventory.Add
+    LocationZ ..&gt; Player : Has(item)
+
+    style IInteractive fill:#e8eef3,stroke:#2f6f8f,color:#1f2428
+    style Interactive fill:#e8eef3,stroke:#2f6f8f,color:#1f2428
+    style Direction fill:#e8eef3,stroke:#2f6f8f,color:#1f2428
+    style Menu fill:#e8eef3,stroke:#2f6f8f,color:#1f2428
+    style World fill:#e8eef3,stroke:#2f6f8f,color:#1f2428
+    style Location fill:#e8eef3,stroke:#2f6f8f,color:#1f2428
+    style Npc fill:#e8eef3,stroke:#2f6f8f,color:#1f2428
+    style Player fill:#e8eef3,stroke:#2f6f8f,color:#1f2428
+    style Game fill:#fbefd9,stroke:#b07a2a,color:#1f2428
+    style LocationX fill:#fbefd9,stroke:#b07a2a,color:#1f2428
+    style LocationY fill:#fbefd9,stroke:#b07a2a,color:#1f2428
+    style LocationZ fill:#fbefd9,stroke:#b07a2a,color:#1f2428
+    style NpcA fill:#fbefd9,stroke:#b07a2a,color:#1f2428
+</pre>
+    <figcaption>Everything with a menu inherits from Interactive, which implements the IInteractive interface (the promise) and adds the shared code (Run). Menu builds a numbered menu from the Actions strings and invokes the named public methods on the object by reflection. World holds the grid of Locations and gives each one its coordinates, so exits are derived from neighbouring cells – one "Go …" line per Direction value – rather than declared. World also keeps a Dictionary from class name to Location, which drives the dev teleport.</figcaption>
+  </figure>
+
+  <h2>Reading the diagram</h2>
+  <ul class="notes">
+    <li><strong>Visibility:</strong> <code>+</code> public, <code>#</code> protected, <code>~</code> internal, <code>-</code> private. A trailing <code>$</code> marks a static member.</li>
+    <li><strong>Hollow arrow</strong> is inheritance. <strong>Dashed hollow arrow</strong> is "implements interface". <strong>Dashed arrow</strong> is a dependency (one class calls the other). <strong>Filled diamond</strong> is ownership (LocationX creates and holds its NpcA). <strong>Hollow diamond</strong> is aggregation (World holds the Locations it was handed).</li>
+    <li><strong>Interface vs abstract class:</strong> IInteractive lists what every interactive thing must have. Interactive is the abstract class that actually implements it and adds the code. A class can inherit one base class but implement any number of interfaces.</li>
+    <li><strong>Enum:</strong> Direction has exactly four values. Location loops over them to add exits; <code>direction.ToString()</code> gives "North", which is also the name of the method <code>North()</code> the menu calls.</li>
+    <li><strong>Blocking an exit:</strong> the direction methods on Location are virtual, so LocationX overrides <code>East()</code> and only calls <code>base.East()</code> when its Npc's flag is set. The menu still shows "Go east" because exits come from the grid, not from the room.</li>
+    <li><strong>Placeholders:</strong> LocationX, LocationY, LocationZ and NpcA stand for any concrete room or character. The shipped example maps them to RuneRoom, Courtyard, Gate and Guard.</li>
+  </ul>
+
+  <h2>Mermaid source</h2>
+  <p class="hint">Paste into a <code>```mermaid</code> fence in a GitHub README, or into mermaid.live to export SVG or PNG.</p>
+  <pre class="source">classDiagram
+    direction TB
+
+    class IInteractive {
+        &lt;&lt;interface&gt;&gt;
+        +Name : string
+        +Description : string[]
+        +Actions : string[]
+        +Run()
+    }
+
+    class Interactive {
+        &lt;&lt;abstract&gt;&gt;
+        +Name : string
+        +Description : string[]
+        +Actions : string[]
+        #ExitLabel : string
+        ~AllActions() List~string~
+        +Run()
+        +ToString() string
+    }
+
+    class Direction {
+        &lt;&lt;enumeration&gt;&gt;
+        North
+        East
+        South
+        West
+    }
+
+    class Menu {
+        +Title : string
+        -_children : List~Menu~
+        +Create(lines, instance)$ Menu
+        +Close()$
+        +Run(exitLabel)
+        ~RunOnce(exitLabel) bool
+    }
+
+    class World {
+        -_map : Location[][]
+        -_x : int
+        -_y : int
+        -_byClassName : Dictionary~string, Location~
+        +DevMode : bool
+        +At(x, y) Location
+        +LocationNames : IEnumerable~string~
+        +Find(className) Location
+        +Teleport(className) bool
+        +Play()
+        ~MoveTo(x, y)
+    }
+
+    class Location {
+        &lt;&lt;abstract&gt;&gt;
+        ~World : World
+        ~X : int
+        ~Y : int
+        ~AllActions() List~string~
+        +North()
+        +East()
+        +South()
+        +West()
+        +ShowInventory()
+        +DevTeleport()
+        -Neighbour(direction) Location
+        -Move(direction)
+        -Delta(direction)$
+    }
+
+    class Npc {
+        &lt;&lt;abstract&gt;&gt;
+        #ExitLabel = "Stop talking"
+    }
+
+    class Player {
+        &lt;&lt;static&gt;&gt;
+        +Inventory$ : List~string~
+        +Has(item)$ bool
+    }
+
+    class Game {
+        +Actions : string[]
+        +Start()
+        +Help()
+    }
+
+    class LocationX {
+        -_npc : NpcA
+        -_someFlag : bool
+        +Description : string[]
+        +Actions : string[]
+        +SomeAction()
+        +TalkToNpc()
+        +East()
+    }
+
+    class LocationY {
+        -_someFlag : bool
+        +Actions : string[]
+        +TakeItem()
+    }
+
+    class LocationZ {
+        -_someFlag : bool
+        +Actions : string[]
+        +UseItem()
+    }
+
+    class NpcA {
+        +SomeFlag : bool
+        +Description : string[]
+        +Actions : string[]
+        +SomeReply()
+    }
+
+    IInteractive &lt;|.. Interactive : implements
+    Interactive &lt;|-- Game
+    Interactive &lt;|-- Location
+    Interactive &lt;|-- Npc
+    Location &lt;|-- LocationX
+    Location &lt;|-- LocationY
+    Location &lt;|-- LocationZ
+    Npc &lt;|-- NpcA
+
+    Interactive ..&gt; Menu : Run() builds menu from Actions
+    Menu ..&gt; Interactive : calls methods by name
+    Game ..&gt; World : Start() creates map, sets DevMode
+    World "1" o-- "*" Location : _map grid + _byClassName
+    Location --&gt; World : back-reference
+    Location ..&gt; Direction : exits generated per value
+    Location ..&gt; Menu : Close() after move
+    Location ..&gt; Player : ShowInventory
+    LocationX *-- NpcA : owns, calls Run()
+    LocationY ..&gt; Player : Inventory.Add
+    LocationZ ..&gt; Player : Has(item)
+
+    style IInteractive fill:#e8eef3,stroke:#2f6f8f,color:#1f2428
+    style Interactive fill:#e8eef3,stroke:#2f6f8f,color:#1f2428
+    style Direction fill:#e8eef3,stroke:#2f6f8f,color:#1f2428
+    style Menu fill:#e8eef3,stroke:#2f6f8f,color:#1f2428
+    style World fill:#e8eef3,stroke:#2f6f8f,color:#1f2428
+    style Location fill:#e8eef3,stroke:#2f6f8f,color:#1f2428
+    style Npc fill:#e8eef3,stroke:#2f6f8f,color:#1f2428
+    style Player fill:#e8eef3,stroke:#2f6f8f,color:#1f2428
+    style Game fill:#fbefd9,stroke:#b07a2a,color:#1f2428
+    style LocationX fill:#fbefd9,stroke:#b07a2a,color:#1f2428
+    style LocationY fill:#fbefd9,stroke:#b07a2a,color:#1f2428
+    style LocationZ fill:#fbefd9,stroke:#b07a2a,color:#1f2428
+    style NpcA fill:#fbefd9,stroke:#b07a2a,color:#1f2428</pre>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>
+  mermaid.initialize({ startOnLoad: true, theme: "neutral" });
+</script>
+</body>
+</html>

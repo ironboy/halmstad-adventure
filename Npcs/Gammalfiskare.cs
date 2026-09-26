@@ -5,7 +5,7 @@ class Gammalfiskare : Npc  //: Extend if there a class u inherited          iNpc
   
     // public string? Prata;
 
-    public override string Name => "Gammalfiskare";
+    // public override string Name => "Gammalfiskare";
 
     public override string[] Description => [
         "Du möter en kraftig man med stor omkrest i bringa",
@@ -15,10 +15,10 @@ class Gammalfiskare : Npc  //: Extend if there a class u inherited          iNpc
     ];
     
  
-      public override string[] Actions =>
-     [
-         "Prata med Pudding:Talk"
-     ];
+    //   public override string[] Actions =>
+    //  [
+    //      "Prata med Pudding:Talk"
+    //  ];
 
 
 //     public void Prata()

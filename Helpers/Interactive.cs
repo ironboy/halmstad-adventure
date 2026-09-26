@@ -10,10 +10,11 @@
  *    public override string[] Actions     => ["Look around:LookAround", ...];
  *
  *  ...and that Run() shows the description + menu and calls your methods.
+ *  Interactive implements the IInteractive interface (see IInteractive.cs).
  *  Actions uses the same string format as Menu (see Menu.cs).
  * ========================================================================== */
 
-abstract class Interactive
+abstract class Interactive : IInteractive
 {
     /// <summary>Shown as the menu title. Defaults to the class name.</summary>
     public virtual string Name => GetType().Name;
@@ -29,6 +30,9 @@ abstract class Interactive
 
     /// <summary>Lets subclasses (e.g. Location) add lines after Actions.</summary>
     internal virtual List<string> AllActions() => [.. Actions];
+
+    /// <summary>Every object has ToString(); ours returns the Name, so Console.WriteLine(npc) prints it.</summary>
+    public override string ToString() => Name;
 
     /// <summary>Shows the description and the menu until the player leaves.</summary>
     public virtual void Run()
