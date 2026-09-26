@@ -32,6 +32,8 @@ class CastleManager : Npc
         : _askedAboutCamera ? ["Hota med att stänga ner slottet under utredningen:Threaten"]
         : ["Fråga om att få se övervakningsfilmen:AskAboutCamera"];
 
+    public void MarkCastleSearched() => _castleSearched = true;
+
     public void AskBeforeSearch()
     {
         Console.WriteLine("\"Jag kan inte hjälpa dig med något förrän du vet vad du letar efter. " +

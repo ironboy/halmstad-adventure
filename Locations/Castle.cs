@@ -5,7 +5,6 @@ class Castle : Location
 {
     private readonly CastleManager _castlemanager = new();
     private bool _searchclues;
-
     public override string Name => "Krapperups Slott";
 
     public override string[] Description => [
@@ -25,6 +24,7 @@ class Castle : Location
             ? "Att leta igenom slottet igen gav inga nya ledtrådar."
             : "\"Leta igenom slottet efter figuren\" – Du ser övervakningskameror. slottsförvaltaren kanske har sett något.");
         _searchclues = true;
+        _castlemanager.MarkCastleSearched();
         Console.ReadLine();
     }
 
