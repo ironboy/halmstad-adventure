@@ -23,7 +23,7 @@ class Badgäst : Npc
     }
     public void TalkAboutGuest()
     {
-        Console.WriteLine("Jag såg gästen gå mot Ransvik igår kväll.");
+        Console.WriteLine("Jag såg gästen går mot Ransvik igår kväll.");
         Console.WriteLine("Han verkade ha väldigt bråttom.");
     }
     public override void Run()
