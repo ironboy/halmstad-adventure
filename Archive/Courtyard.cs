@@ -1,11 +1,7 @@
-
-
-
-
 // Example location with a submenu (the "-" lines) and an item that disappears.
 // The key goes into Player.Inventory so other locations can check for it.
 
-class Courtyard : Location
+/* class Courtyard : Location
 {
     private bool _fountainSearched;
 
@@ -44,3 +40,4 @@ class Courtyard : Location
         Console.ReadLine();
     }
 }
+*/
