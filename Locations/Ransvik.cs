@@ -40,7 +40,7 @@ class Ransvik : Location
         Console.ReadLine();
     }
 
-    
+
 
  public override string [] Description => [
         "HEJ OCH VÄLKOMMEN TILL RANSVIK",

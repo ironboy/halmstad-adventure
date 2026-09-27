@@ -22,11 +22,21 @@ class Game : Interactive
 
         // Row 0 is north, column 0 is west. null = nothing there.
         World world = new([
-        [new MölleHamn(), new GrandHotel()],
-        [new Ransvik(), null],
-        ], 0, 0);
-                        // 0,0 = RuneRoom col = 0, row = 0
 
+        [new Forensic(),        null,                  null],
+        [new Hoganashamn(),     new PoliceStation(),   null],
+        [new Travel(),          null,                  null],
+        [new MölleHamn(),       new GrandHotel(),      null],
+        [new Ransvik(),         null,                  null],
+        [new Path(),            new Josefinelust(),    new SilverCave()],
+        [null,                  new RustyGarden(),                  null],
+        [new Harbour(),         new ArildChapel(),                  null]
+        ], 1, 1);
+        // 0,0 = RuneRoom col = 0, row = 0
+
+
+
+        world.DevMode = true;   // "DEV: Teleport" in every menu - set to false for the real game
         world.Play();
     }
 
