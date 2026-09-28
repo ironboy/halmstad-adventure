@@ -15,7 +15,7 @@
 class CastleLibrary : Location
 {
     // REPLACE with the name your group decided the murderer borrowed the book under.
-    private const string Borrower = "[Gry Nicholsson]";
+    private const string Borrower = "[Jane Doe]";
 
     private bool _knowsWish;           // he has told you what he wants
     private bool _promisedAccess;      // promise 1: the inner chambers
