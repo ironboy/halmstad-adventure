@@ -22,14 +22,13 @@ Falsk hemsökelse är den röda tråden: överallt ser det ut som Kullamannen, m
 
 Rad 0 är norr, kolumn 0 är väster. Halvöns spets (fyren) pekar nordväst.
 
-```
-        0                1                2               3                 4
-rad 0   Kullens fyr      Silvergrottan    Nimis           Arilds hamn       Arilds kapell
-rad 1   Fyrvaktarbostad  Josefinelust     Himmelstorp     Rusthållargården  –
-rad 2   Ransvik          Mölle hamn       Grand Hôtel     Krapperups slott  Slottsbiblioteket
-rad 3   –                –                Nyhamnsläge     Höganäs hamn      Polisstationen (START)
-rad 4   –                –                –               Rättsmedicin      Evas bil (→ Helsingborg)
-```
+| | 0 | 1 | 2 | 3 | 4 |
+|---|---|---|---|---|---|
+| **rad 0** | Kullens fyr | Silvergrottan | Nimis | Arilds hamn | Arilds kapell |
+| **rad 1** | Fyrvaktarbostad | Josefinelust | Himmelstorp | Rusthållargården | – |
+| **rad 2** | Ransvik | Mölle hamn | Grand Hôtel | Krapperups slott | Slottsbiblioteket |
+| **rad 3** | – | – | Nyhamnsläge | Höganäs hamn | **Polisstationen (START)** |
+| **rad 4** | – | – | – | Rättsmedicin | Evas bil (→ Helsingborg) |
 
 Utgångar skapas automatiskt mellan grannceller, så **klustren måste vara sammanhängande block** och bara gränsa till varandra där det är rimligt att gå. Kartan ovan är ett utkast – flytta gärna, men behåll blocken hela.
 
@@ -75,11 +74,13 @@ Vi jobbar alla i **samma repo** – inga forkar. `main` är skyddad: ingen kan p
    feature-7-fyren-final
    ```
 
-   Hela gruppen jobbar på samma branch. Klona repot, sedan:
+   Hela gruppen jobbar på samma branch. Klona repot och byt till **er grupps** branch – antingen i terminalen:
 
    ```
-   git switch feature-2-molle
+   git switch feature-<ert nummer>-<ert kluster>
    ```
+
+   eller i VS Code: klicka på branch-namnet längst ner i vänstra hörnet (där det står `main`) och välj er branch i listan. Kontrollera att det står rätt branch där innan ni börjar skriva kod – och innan ni pushar.
 
 ## Så jobbar en grupp
 
