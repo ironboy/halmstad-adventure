@@ -127,7 +127,7 @@ Han nickar, som om det förklarade allt.");
         while (!answeredCorrectly)
         {
             Console.Clear();
-            Console.WriteLine($"Fråga 3. 1 + 1 = ?\n1. 1?\n2. 11?\n3. 111?");
+            Console.WriteLine($"Fråga 3. 1 + 1 = ?\n1. 2?\n2. 22?\n3. 222?");
             if(int.TryParse(Console.ReadLine(), out int answer))
             {
                 if (answer == 1)
