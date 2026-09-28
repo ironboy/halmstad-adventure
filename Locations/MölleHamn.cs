@@ -28,8 +28,7 @@ class MölleHamn : Location
             "Search the shed:Searchtheshed"] // so this is a way to makle an if and else, cant make an else if tho ? :
         : [
 
-        
-            "Search the shed:Searchtheshed", // needed to have the same pattern, but i dont want it too have 2 sheds and should add an desc. to Mölle for the conspicuous sheds
+         // needed to have the same pattern, but i dont want it too have 2 sheds and should add an desc. to Mölle for the conspicuous sheds
             "Search the shed",
             "-Go in and search:TakeTheHook", // yeah less desc. and more method bahh
             "-Leave the area:LeaveIt"];

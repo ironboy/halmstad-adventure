@@ -32,7 +32,7 @@ public override void East()
         }
         else
         {
-            base.South();
+            base.East();
         }
     }
 
