@@ -1,0 +1,4 @@
+class Fyren : Location
+{
+    
+}

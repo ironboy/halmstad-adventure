@@ -35,7 +35,8 @@ class Game : Interactive
         [new Castle(),          new CastleLibrary(),    null],
         [new Travel(),          null,                   null],
         [new Nimis(),           new Himmelstorp(),      null],
-        [null,                  new Klippstranden(),    null]
+        [null,                  new Klippstranden(),    null],
+        [null,                  new Travel(),           null]
         ], 1, 1);
         // 0,0 = RuneRoom col = 0, row = 0
 
