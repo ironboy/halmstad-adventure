@@ -35,7 +35,7 @@ abstract class Interactive : IInteractive
     public override string ToString() => Name;
 
     /// <summary>Shows the description and the menu until the player leaves.</summary>
-    public void Run()
+    public virtual void Run()
     {
         // The menu is rebuilt after every action, so changes to
         // Description or Actions made by an action show up immediately.
