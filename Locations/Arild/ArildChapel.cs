@@ -66,8 +66,21 @@ class ArildChapel : Location
     public void TalkToPriest() => _priest.Run();
 
 
+    public override void North()
+    {
+        if (!_priest.Bribed)
+        {
+            BlockedMessage();
 
-    public override void South()
+        }
+        else
+        {
+            base.North();
+        }
+
+    }
+
+    public override void West()
 
     { 
     if (!_priest.Bribed)
@@ -77,7 +90,7 @@ class ArildChapel : Location
         }
         else
         {
-            base.South();
+            base.West();
         }
 
     }
