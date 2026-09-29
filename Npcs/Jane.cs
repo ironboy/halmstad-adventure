@@ -12,7 +12,7 @@ class Jane : Npc
         "Presentera alla bevis:ShowEvidence",
        
     ];
-    static string[] allaBevis = { "obduktionsrapport", "signalement", "högtalare", "skiss", "lånekort", "dagbokssida" };
+    static string[] allaBevis = { "Obduktionsrapport", "Hårtuss", "Högtalare", "Skiss", "Lånekort", "Dagbokssida" };
 
     private void TalkToJane()
     {
@@ -51,7 +51,7 @@ class Jane : Npc
                 Console.ReadLine();
                 break;
  
-            case "signalement":
+            case "Hårtuss":
                 Console.WriteLine("Du läser högt ur ditt anteckningsblock. \"Signalementet från den blodiga kroken i Mölle hamn:",
                 "långt, svart hår. Det stämmer med dig.\"");
                 Console.WriteLine("\"Halva Kullen har svart hår\", fräser Jane, men hon för handen till sitt hår.");

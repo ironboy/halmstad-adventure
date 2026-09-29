@@ -39,7 +39,7 @@ class Painter : Npc
     public void AskForSketch()
     {
         _gaveSketch = true;
-        Player.Inventory.Add("skiss");
+        Player.Inventory.Add("Skiss");
 
         Console.WriteLine(
             "Konstnären tvekar ett ögonblick och räcker sedan över skissen."

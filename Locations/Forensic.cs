@@ -35,7 +35,7 @@ public override string[] Actions => !_coroner.GetReport ? [
     {
         _deskSearched = true;
         _coroner.ReportTaken = true;
-        Player.Inventory.Add("obduktionsrapport");
+        Player.Inventory.Add("Obduktionsrapport");
         Console.WriteLine("Det står att skärsåren är gjorda av kirurgiska knivar. Du tar med dig obduktionsrapporten.");
         Console.ReadLine();
         Menu.Close();   // close the submenu – the Actions list has changed

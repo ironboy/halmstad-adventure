@@ -105,7 +105,7 @@ class CastleLibrary : Location
     public void AskWhoBorrowed()
     {
         _knowsBorrower = true;
-        Player.Inventory.Add("lånekortets namn");
+        Player.Inventory.Add("Lånekort");
         Console.WriteLine("Han vänder på lånekortet i liggaren.");
         Console.WriteLine($"\"{Borrower}. En kvinna med jackan knäppt ända upp.");
         Console.WriteLine("Hon trodde inte på sägnen. Hon använde den. Och hon gömde boken under jackan.\"");

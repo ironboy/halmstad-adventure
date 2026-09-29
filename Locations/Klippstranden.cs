@@ -124,7 +124,7 @@ class Klippstranden : Location
     {
         Console.Clear();
         _beachSearched = true;
-        Player.Inventory.Add("dagbokssida");
+        Player.Inventory.Add("Dagbokssida");
         Console.WriteLine("Du lirkar försiktigt loss pappret... Du hittade en dagbokssida!");
         Console.WriteLine("Du stoppar ner dagbokssidan i ditt inventory.");
         Console.WriteLine("\nTryck Enter för att fortsätta...");
