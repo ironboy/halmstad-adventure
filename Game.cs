@@ -14,19 +14,40 @@ class Game : Interactive
 
     protected override string ExitLabel => "Quit";
 
-    public void Start()
+    public void Start() // wasnt static or altleast the current code wouldnt let me use static
     {
         // Everything is created fresh, so a new game starts from scratch:
         // new locations (their state is reset) and an empty inventory.
-        Player.Inventory.Clear();
+      //  Player.Inventory.Clear();
+
+      // !! Ta bort när vi är klara!!! Enbart för test av slutscen.
+      //Player.Inventory.AddRange(["Obduktionsrapport", "Hårtuss", "Högtalare", "Skiss", "Lånekort", "Dagbokssida"]); 
+
 
         // Row 0 is north, column 0 is west. null = nothing there.
         World world = new([
-            [new RuneRoom(), new Hallway()],
-            [null,           new Courtyard()],
-            [null,           new Gate()],
-        ], 0, 0); // 0,0 = RuneRoom col = 0, row = 0
 
+        [new Forensic(),        null,                  null],
+        [new Hoganashamn(),     new PoliceStation(),   null],
+        [new Travel(),          null,                  null],
+        [new MölleHamn(),       new GrandHotel(),      null],
+        [new Ransvik(),         null,                  null],
+        [new Path(),            new Josefinelust(),    new SilverCave()],
+        [null,                  new RustyGarden(),      null],
+        [new Harbour(),         new ArildChapel(),      null],
+        [new Park(),            null,                   null],
+        [new Castle(),          new CastleLibrary(),    null],
+        [new Travel(),          null,                   null],
+        [new Nimis(),           new Himmelstorp(),      null],
+        [null,                  new Klippstranden(),    null],
+        [null,                  new Travel(),           null],
+         [null,                 new Fyren(),            null]
+        ], 1, 1);
+        // 0,0 = RuneRoom col = 0, row = 0
+
+
+
+        world.DevMode = true;   // "DEV: Teleport" in every menu - set to false for the real game
         world.Play();
     }
 
