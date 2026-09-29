@@ -44,7 +44,7 @@ class Jane : Npc
     {
         switch (bevis)
         {
-            case "obduktionsrapport":
+            case "Obduktionsrapport":
                 Console.WriteLine("Du slänger rapporten på bordet. \"Rivsåren. Alla sa att det var Kullamannens klor.",
             "Men Dr. Lindkvist säger något annat: kirurgiska knivar. Precis som morden i London.\"");
                 Console.WriteLine("Jane: \"London...\" Det är första gången hennes röst spricker.");
@@ -58,28 +58,28 @@ class Jane : Npc
                 Console.ReadLine();
                 break;
  
-            case "högtalare":
+            case "Högtalare":
                 Console.WriteLine("Du ställer den blodfläckade högtalaren från Silvergrottan framför henne.",
                 "\"Skräckljuden i grottan. Spöket på väggen. Du byggde en sägen så att ingen skulle leta efter en människa.\"");
                 Console.WriteLine("Jane ler snett. \"Folk vill tro på monster. Jag gav dem bara det de ville ha.\"");
                 Console.ReadLine();
                 break;
  
-            case "skiss":
+            case "Skiss":
                 Console.WriteLine("Du vecklar ut konstnärens skiss. Kvinnan på piren tittar upp från pappret. Det är hennes ansikte.",
                 "\"Leo såg dig den kvällen. Du försökte gömma dig, men inte tillräckligt bra.\"");
                 Console.WriteLine("Hon stirrar på teckningen länge. \"Han fick till ögonen\", viskar hon.");
                 Console.ReadLine();
                 break;
  
-            case "lånekort":
+            case "Lånekort":
                 Console.WriteLine("\"Boken om Kullamannen i slottsbiblioteket. Utlånad till Jane Doe.",
                 "Du trodde inte på sägnen. Du studerade den. Du använde den.\"");
                 Console.WriteLine("\"Man måste känna sitt monster\", säger hon tyst, \"om man ska bära hans namn.\"");
                 Console.ReadLine();
                 break;
  
-            case "dagboksida":
+            case "Dagbokssida":
                 Console.WriteLine("Du lägger dagbokssidan från drivvedstornet på bordet. Handstilen är hennes.",
             "\"Du skrev ner allt. Datum, platser, namn. Och så försökte du gömma det i havet.\"");
                 Console.WriteLine("Jane blir helt stilla. \"Den sidan... den skulle ha flutit bort.\"");
@@ -95,7 +95,8 @@ class Jane : Npc
  
         if (ending)
         {
-            Console.WriteLine("Bevisen ligger utspridda framför henne. Jane säger ingenting längre. \n Du griper henne.");
+            Console.WriteLine("Bevisen ligger utspridda framför henne. Jane säger ingenting längre.");
+            Console.WriteLine($"Du griper henne.");
             Console.ReadLine();
             new Game().Run();
             // logik för att gripa Jane / vinst-scenen
