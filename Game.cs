@@ -20,6 +20,9 @@ class Game : Interactive
         // new locations (their state is reset) and an empty inventory.
       //  Player.Inventory.Clear();
 
+      // !! Ta bort när vi är klara!!! Enbart för test av slutscen.
+      Player.Inventory.AddRange(["obduktionsrapport", "signalement", "högtalare", "skiss", "lånekort", "dagbokssida"]); 
+
         // Row 0 is north, column 0 is west. null = nothing there.
         World world = new([
 
