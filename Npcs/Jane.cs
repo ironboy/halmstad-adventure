@@ -1,72 +1,3 @@
-/*
-class Jane : Npc
-{
-    public override string Name => "Jane Doe";
- 
-    public override string[] Description => [
-        "En mystisk person som står vid fyren.",
-        "Hon verkar ha något viktigt att berätta."
-    ];
- 
-    public override string[] Actions => [
-        "Konfrontera Jane Doe:Confront"
-    ];
- 
-    static readonly (string Item, string Menu, string EvaSays, string JaneReacts, string Hint)[] Evidence =
-    {
-        ("obduktionsrapport",
-         "Lägg fram obduktionsrapporten",
-         "Trollklorna är gjorda med en kirurgkniv. Samma snitt som i Whitechapel 1888.",
-         "Jane rycker till. \"Rättsläkare... alltid detaljerna. Jag var noga med trollspåren.\"",
-         "Rättsläkaren vet mer om såren än hon har berättat."),
- 
-        ("signalement",
-         "Visa signalementet från hotelliggaren",
-         "Du checkade in på Grand Hôtel under falskt namn kvällen före mordet.",
-         "Jane ler kallt. \"Ett hotellrum är inget bevis. Men fortsätt, kommissarien.\"",
-         "Någon på Grand Hôtel kanske minns vem som checkade in."),
- 
-        ("högtalare",
-         "Visa högtalaren från grottan",
-         "Kullamannens vrål kom ur en högtalare. Berget har aldrig vaknat.",
-         "\"Bra ljudkvalitet, eller hur?\" säger Jane. Hennes röst är ansträngd.",
-         "Vrålet från grottan lät nästan för tydligt. Gå tillbaka och lyssna."),
- 
-        ("skiss",
-         "Visa konstnärens skiss",
-         "Konstnären ritade en kvinna på piren i Arild. Det är ditt ansikte.",
-         "Jane ser på skissen. Leendet försvinner. \"Han skulle aldrig ha ritat.\"",
-         "Konstnären i Arild ritar alla som går förbi piren."),
- 
-        ("lånekort",
-         "Visa lånekortet från slottsbiblioteket",
-         "Du lånade boken om Kullamannen. Ditt namn står på kortet.",
-         "\"Jag hade tänkt lämna tillbaka den\", viskar Jane och skrattar till.",
-         "Någon har lånat boken om Kullamannen på slottsbiblioteket."),
- 
-        ("dagbokssida",
-         "Läs upp dagbokssidan",
-         "\"Jag hör dem fortfarande. Berget svarar när jag dödar.\" Du skrev det själv.",
-         "Jane blir alldeles stilla. \"Var hittade du den? Den skulle vara borta.\"",
-         "Jane skriver ner allt. Någonstans finns en sida hon inte hann bli av med."),
-    };
- 
-    public void Confront()
-    {
-        Console.WriteLine("Du tar ett djupt andetag och börjar lägga fram bevisen.");
-        Console.ReadLine();
- 
-        foreach (var e in Evidence)
-        {
-            if (!Player.Has(e.Item))
-            {
-                Console.WriteLine("Eva plockar fram bevisen men")
-            }
-        }
-    }
-}
-*/  
-
 class Jane : Npc
 {
     public override string Name => "Jane Doe";
@@ -81,7 +12,7 @@ class Jane : Npc
         "Presentera alla bevis:ShowEvidence",
        
     ];
-    static string[] allaBevis = { "obduktionsrapport", "signalement", "högtalare", "skiss", "lånekort", "dagboksida" };
+    static string[] allaBevis = { "obduktionsrapport", "signalement", "högtalare", "skiss", "lånekort", "dagbokssida" };
 
     private void TalkToJane()
     {
@@ -92,14 +23,21 @@ class Jane : Npc
  
     private void ShowEvidence()
     {
+       bool goodEnding = true;
         foreach (var bevis in allaBevis)
         {
             if (Player.Inventory.Contains(bevis))
             {
                 VisaDialog(bevis);
             }
+            else
+            {
+                goodEnding = false;
+            }
             
         }
+
+        AvgorSlutet(goodEnding);
     }
  
     static void VisaDialog(string bevis)
@@ -107,158 +45,71 @@ class Jane : Npc
         switch (bevis)
         {
             case "obduktionsrapport":
-                Console.WriteLine("Du lägger fram obduktionsrapporten.");
-                Console.WriteLine("Jane: \"...\"");
+                Console.WriteLine("Du slänger rapporten på bordet. \"Rivsåren. Alla sa att det var Kullamannens klor.",
+            "Men Dr. Lindkvist säger något annat: kirurgiska knivar. Precis som morden i London.\"");
+                Console.WriteLine("Jane: \"London...\" Det är första gången hennes röst spricker.");
+                Console.ReadLine();
                 break;
  
             case "signalement":
-                Console.WriteLine("Du lägger fram signalementet.");
-                Console.WriteLine("Jane: \"...\"");
+                Console.WriteLine("Du läser högt ur ditt anteckningsblock. \"Signalementet från den blodiga kroken i Mölle hamn:",
+                "långt, svart hår. Det stämmer med dig.\"");
+                Console.WriteLine("\"Halva Kullen har svart hår\", fräser Jane, men hon för handen till sitt hår.");
+                Console.ReadLine();
                 break;
  
             case "högtalare":
-                Console.WriteLine("Du lägger fram högtalaren.");
-                Console.WriteLine("Jane: \"...\"");
+                Console.WriteLine("Du ställer den blodfläckade högtalaren från Silvergrottan framför henne.",
+                "\"Skräckljuden i grottan. Spöket på väggen. Du byggde en sägen så att ingen skulle leta efter en människa.\"");
+                Console.WriteLine("Jane ler snett. \"Folk vill tro på monster. Jag gav dem bara det de ville ha.\"");
+                Console.ReadLine();
                 break;
  
             case "skiss":
-                Console.WriteLine("Du lägger fram skissen.");
-                Console.WriteLine("Jane: \"...\"");
+                Console.WriteLine("Du vecklar ut konstnärens skiss. Kvinnan på piren tittar upp från pappret. Det är hennes ansikte.",
+                "\"Leo såg dig den kvällen. Du försökte gömma dig, men inte tillräckligt bra.\"");
+                Console.WriteLine("Hon stirrar på teckningen länge. \"Han fick till ögonen\", viskar hon.");
+                Console.ReadLine();
                 break;
  
             case "lånekort":
-                Console.WriteLine("Du lägger fram lånekortet.");
-                Console.WriteLine("Jane: \"...\"");
+                Console.WriteLine("\"Boken om Kullamannen i slottsbiblioteket. Utlånad till Jane Doe.",
+                "Du trodde inte på sägnen. Du studerade den. Du använde den.\"");
+                Console.WriteLine("\"Man måste känna sitt monster\", säger hon tyst, \"om man ska bära hans namn.\"");
+                Console.ReadLine();
                 break;
  
             case "dagboksida":
-                Console.WriteLine("Du lägger fram dagbokssidan.");
-                Console.WriteLine("Jane: \"...\"");
+                Console.WriteLine("Du lägger dagbokssidan från drivvedstornet på bordet. Handstilen är hennes.",
+            "\"Du skrev ner allt. Datum, platser, namn. Och så försökte du gömma det i havet.\"");
+                Console.WriteLine("Jane blir helt stilla. \"Den sidan... den skulle ha flutit bort.\"");
+                Console.ReadLine();
                 break;
         }
+
     }
  
-    static void AvgorSlutet()
+    static void AvgorSlutet(bool ending)
     {
-        bool harAllaBevis = allaBevis.All(b => Player.Inventory.Contains(b));
+       // bool harAllaBevis = allaBevis.All(b => Player.Inventory.Contains(b));
  
-        if (harAllaBevis)
+        if (ending)
         {
-            Console.WriteLine("\nDu har lagt fram alla bevis. Du griper Jane.");
+            Console.WriteLine("Bevisen ligger utspridda framför henne. Jane säger ingenting längre. \n Du griper henne.");
+            Console.ReadLine();
+            new Game().Run();
             // logik för att gripa Jane / vinst-scenen
         }
         else
         {
-            Console.WriteLine("\nDu saknar bevis. Du får börja om utanför fyren.");
+            Console.WriteLine("Jane ler kallt. \"Det räcker inte, kommissarien.\"");
+            Console.WriteLine("Hon rör sig blixtsnabbt. Allt blir svart.");
+            Console.WriteLine("\nDu saknade bevis och får börja om utanför fyren.");
+            Console.ReadLine();
+            Menu.Close();
             // flytta spelaren till fyren / återställ spelet
         }
     }
  
 
 }
-
-/*void ConfrontJane()
-    {
-        var shown = new List<string>();
- 
-        Console.WriteLine("Jane vänder sig mot dig.");
-        Console.WriteLine("\"Så, du tror att du vet vem jag är?\"");
-        Console.ReadLine();
- 
-        while (shown.Count < Evidence.Length)
-        {
-            // Only evidence the player holds and hasn't used yet
-            var options = Evidence
-                .Where(e => Player.Has(e.Item) && !shown.Contains(e.Item))
-                .ToList();
- 
-            Console.WriteLine();
-            for (int i = 0; i < options.Count; i++)
-                Console.WriteLine($"{i + 1}. {options[i].Menu}");
-            Console.WriteLine("0. Anklaga henne med det du har");
-            Console.Write("> ");
- 
-            if (!int.TryParse(Console.ReadLine(), out int choice) || choice < 0 || choice > options.Count)
-            {
-                Console.WriteLine("Välj ett nummer.");
-                continue;
-            }
- 
-            if (choice == 0) break;
- 
-            var picked = options[choice - 1];
-            shown.Add(picked.Item);
- 
-            Console.WriteLine();
-            Console.WriteLine($"Eva: \"{picked.EvaSays}\"");
-            Console.WriteLine(picked.JaneReacts);
-            Console.ReadLine();
-        }
- 
-        if (shown.Count == Evidence.Length)
-        {
-            Console.WriteLine();
-            Console.WriteLine("Bevisen ligger utspridda framför henne. Jane säger ingenting längre.");
-            Console.WriteLine("Hon sjunker ihop på trappan. Det är över.");
-            Console.WriteLine("*** DU VANN ***");
-            Console.ReadLine();
-            Environment.Exit(0); // TODO: replace with ending/credits
-        }
-        else
-        {
-            var missing = Player.Missing(Evidence.Select(e => e.Item).ToArray());
-            Console.WriteLine();
-            Console.WriteLine("Jane ler kallt. \"Det räcker inte, kommissarien.\"");
-            Console.WriteLine("Hon rör sig blixtsnabbt. Allt blir svart.");
-            Console.WriteLine("*** DU ÄR DÖD ***");
-            Console.WriteLine($"(Du saknade: {string.Join(", ", missing)})"); // remove for the real game
-            Console.ReadLine();
-            Environment.Exit(0);
-
-*/
-
-
-
-// static readonly (string Item, string Menu, string EvaSays, string JaneReacts)[] Evidence =
-//     {
-//         ("obduktionsrapport",
-//          "Lägg fram obduktionsrapporten",
-//          "Trollklorna är gjorda med en kirurgkniv. Samma snitt som i Whitechapel 1888.",
-//          "Jane rycker till. \"Rättsläkare... alltid detaljerna. Jag var noga med trollspåren.\""),
- 
-//         ("signalement",
-//          "Visa signalementet från hotelliggaren",
-//          "Du checkade in på Grand Hôtel under falskt namn kvällen före mordet.",
-//          "Jane ler kallt. \"Ett hotellrum är inget bevis. Men fortsätt, kommissarien.\""),
- 
-//         ("högtalare",
-//          "Visa högtalaren från grottan",
-//          "Kullamannens vrål kom ur en högtalare. Berget har aldrig vaknat.",
-//          "\"Bra ljudkvalitet, eller hur?\" säger Jane. Hennes röst är ansträngd."),
- 
-//         ("skiss",
-//          "Visa konstnärens skiss",
-//          "Konstnären ritade en kvinna på piren i Arild. Det är ditt ansikte.",
-//          "Jane ser på skissen. Leendet försvinner. \"Han skulle aldrig ha ritat.\""),
- 
-//         ("lånekort",
-//          "Visa lånekortet från slottsbiblioteket",
-//          "Du lånade boken om Kullamannen. Ditt namn står på kortet.",
-//          "\"Jag hade tänkt lämna tillbaka den\", viskar Jane och skrattar till."),
- 
-//         ("dagbokssida",
-//          "Läs upp dagbokssidan",
-//          "\"Jag hör dem fortfarande. Berget svarar när jag dödar.\" Du skrev det själv.",
-//          "Jane blir alldeles stilla. \"Var hittade du den? Den skulle vara borta.\""),
-//     };
-
-//  vi kan komma in i fyren utan alla bevis, men vid konfrontation utan alla bevis "konfronteras" vi av Jane Doe och vi "dödas" och kommer 
-//tillbaka med hint alt. hint har givits efter Jane Doe konfronterar. 
-
-// bool harAllaBevis = allaBevis.All(
-//     b => Player.Inventory.Any(i => i.Equals(b, StringComparison.OrdinalIgnoreCase)
-
-//  bool harAllaBevis = allaBevis.All(b => Player.Inventory.Contains(b));
-
-
- 
