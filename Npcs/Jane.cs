@@ -95,11 +95,23 @@ class Jane : Npc
  
         if (ending)
         {
-            Console.WriteLine("Bevisen ligger utspridda framför henne. Jane säger ingenting längre.");
-            Console.WriteLine($"Du griper henne.");
-            Console.ReadLine();
-            new Game().Run();
-            // logik för att gripa Jane / vinst-scenen
+            Console.Clear();
+            Console.WriteLine("Bevisen ligger utspridda framför henne. Jane skriker \"FIGHT\"");
+            Console.WriteLine("Jane kastar ut sin kullaboll och där kommer \"Kullamannen\"");
+            Console.WriteLine("Eva kastar ut sin kullaboll och där kommer \"Johan Falk\"");
+            Console.ReadKey();
+            if(Fight()) // Om man vinner fighten
+            {
+                Console.WriteLine("Jane grips");
+                Console.ReadKey();
+            }
+            else
+            {
+                Console.WriteLine("Du dör lol noob");
+                Console.ReadKey();
+                Menu.Close();
+            }
+            
         }
         else
         {
@@ -111,6 +123,43 @@ class Jane : Npc
             // flytta spelaren till fyren / återställ spelet
         }
     }
- 
 
+    static bool Fight()
+    {
+        var johan = new Johan();
+        var kullamannen = new Kullamannen();
+        var random = new Random();
+        while(johan.Hp > 0 && kullamannen.Hp > 0)   //Körs till någon har mer än 0 HP
+        {
+            Console.Clear();
+            Console.WriteLine($"{johan.Name}: {johan.Hp} HP");
+            Console.WriteLine($"{kullamannen.Name}: {kullamannen.Hp} HP\n");
+            Console.WriteLine($"1. Skjut (15 skada)\n2. Slå (10 skada)\nVälj attack: ");
+
+            string input = Console.ReadLine();
+
+            if (input == "1")
+            {
+                johan.Attack(kullamannen, 1);   //Choice parameter för vilken attack som ska användas
+            }
+            else if (input == "2")
+            {
+                johan.Attack(kullamannen, 2);
+            }
+            else
+            {
+                continue;
+            }
+            if (kullamannen.Hp > 0)
+            {
+                int enemyChoice = random.Next(1,3);
+                kullamannen.Attack(johan, enemyChoice);
+            }
+            Console.ReadKey();         
+        }
+        return kullamannen.Hp <= 0;
+    }
+ 
+// jane kastar kullamannen
+// eva kastar Johan Falk
 }

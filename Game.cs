@@ -21,7 +21,7 @@ class Game : Interactive
       //  Player.Inventory.Clear();
 
       // !! Ta bort när vi är klara!!! Enbart för test av slutscen.
-      //Player.Inventory.AddRange(["Obduktionsrapport", "Hårtuss", "Högtalare", "Skiss", "Lånekort", "Dagbokssida"]); 
+      Player.Inventory.AddRange(["Obduktionsrapport", "Hårtuss", "Högtalare", "Skiss", "Lånekort", "Dagbokssida"]); 
 
 
         // Row 0 is north, column 0 is west. null = nothing there.
