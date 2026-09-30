@@ -37,11 +37,13 @@ class Coroner : Npc
         {
             Console.WriteLine("Kroppen är obducerad.");
             Console.ReadLine();
+            Menu.Close();
         }
         else
         {
             Console.WriteLine("Jag har annat jag behöver jobba med nu.");
             Console.ReadLine();
+            Menu.Close();
         }
     }
 }

@@ -54,7 +54,7 @@ public override string[] Actions => !_coroner.GetReport ? [
 
     public void LookAround()
     {
-        Console.WriteLine("Litta döingar...");
+        Console.WriteLine("Mitt i rummet står ett obduktionsbord. Det svaga ljuset glänser i bordet.");
         Console.ReadLine();
     }
 

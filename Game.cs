@@ -28,7 +28,7 @@ class Game : Interactive
         World world = new([
 
         [new Forensic(),        null,                  null],
-        [new Hoganashamn(),     new PoliceStation(),   null],
+        [new HoganasHarbour(),     new PoliceStation(),   null],
         [new Travel(),          null,                  null],
         [new MölleHamn(),       new GrandHotel(),      null],
         [new Ransvik(),         null,                  null],

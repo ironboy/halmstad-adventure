@@ -3,8 +3,8 @@ class Travel : Location
   public override string Name => "Resa";
 
   public override string[] Description => [
-         "Ta plats",
-        "Vi är snart framme"
+         "Eva och Omar behöver köra till nästa plats.",
+         "De hoppar in i polisbilen."
 
      ];
 

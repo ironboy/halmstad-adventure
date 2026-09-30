@@ -1,10 +1,10 @@
 // Example location: shows state that changes the description,
 // and how to hand over to an Npc's menu.
 
-class Hoganashamn : Location
+class HoganasHarbour : Location
 {
     private bool Trollmarks;
-    private bool WentSouth;
+    private bool WentNorth;
 
     public override string Name => "Höganäs hamn";
 
@@ -15,11 +15,11 @@ class Hoganashamn : Location
     ];
 
     public override string[] Actions => [
-        "Prata med Omar:Omar",
-        "Se dig omkring:Kolla"
+        "Prata med Omar:TalkToOmar",
+        "Se dig omkring:LookAround"
     ];
 
-    public void Omar()
+    public void TalkToOmar()
     {
         if(!Trollmarks)
             Console.WriteLine("Vi borde se oss omkring efter ledtrådar.");
@@ -28,7 +28,7 @@ class Hoganashamn : Location
         Console.ReadLine();
     }
 
-    public void Kolla()
+    public void LookAround()
     {
         Trollmarks = true;
         Console.WriteLine("Ni ser den döda kroppen med sår som ser ut som stora rivsår.");
@@ -36,14 +36,14 @@ class Hoganashamn : Location
         
     }
 
-    public override void North()
+    public override void South()
     {
-        if(WentSouth)
-            base.North();
+        if(WentNorth)
+            base.South();
         else
         {
             Console.WriteLine(Trollmarks ? 
-            "Omar Sjöberg: \"Vi borde gå syd till Rättsmedicin och få info om den döda kroppen.\"" 
+            "Omar Sjöberg: \"Vi borde gå norrut till Rättsmedicin och få info om den döda kroppen.\"" 
             : "Omar Sjöberg: \"Vi borde kolla omkring hamnen lite mer.\"");
             Console.ReadLine();
         }
@@ -52,24 +52,24 @@ class Hoganashamn : Location
 
     public override void West()
     {
-        if(WentSouth)
+        if(WentNorth)
             base.West();
         else
         {
             Console.WriteLine(Trollmarks ? 
-            "Omar Sjöberg: \"Vi borde gå syd till Rättsmedicin och få info om den döda kroppen.\"" 
+            "Omar Sjöberg: \"Vi borde gå norrut till Rättsmedicin och få info om den döda kroppen.\"" 
             : "Omar Sjöberg: \"Vi borde kolla omkring hamnen lite mer.\"");
             Console.ReadLine();
         }
             
     }
 
-    public override void South()
+    public override void North()
     {
         if(Trollmarks)
         {
-            WentSouth = true;
-            base.South();
+            WentNorth = true;
+            base.North();
         }
         else
         {
