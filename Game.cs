@@ -18,10 +18,10 @@ class Game : Interactive
     {
         // Everything is created fresh, so a new game starts from scratch:
         // new locations (their state is reset) and an empty inventory.
-      //  Player.Inventory.Clear();
+        //  Player.Inventory.Clear();
 
-      // !! Ta bort när vi är klara!!! Enbart för test av slutscen.
-      //Player.Inventory.AddRange(["Obduktionsrapport", "Hårtuss", "Högtalare", "Skiss", "Lånekort", "Dagbokssida"]); 
+        // !! Ta bort när vi är klara!!! Enbart för test av slutscen.
+        //Player.Inventory.AddRange(["Obduktionsrapport", "Hårtuss", "Högtalare", "Skiss", "Lånekort", "Dagbokssida"]); 
 
 
         // Row 0 is north, column 0 is west. null = nothing there.
@@ -47,7 +47,7 @@ class Game : Interactive
 
 
 
-        world.DevMode = true;   // "DEV: Teleport" in every menu - set to false for the real game
+        world.DevMode = false;   // "DEV: Teleport" in every menu - set to false for the real game
         world.Play();
     }
 
