@@ -1,6 +1,6 @@
 // Example location that checks the player's inventory (filled by Courtyard).
 
-class Gate : Location
+/* class Gate : Location
 {
     private bool _unlocked;
 
@@ -37,3 +37,4 @@ class Gate : Location
         Menu.Close();   // back to the main menu
     }
 }
+*/
